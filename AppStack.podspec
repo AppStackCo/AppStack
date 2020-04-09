@@ -28,7 +28,7 @@ TODO: Add long description of the pod here.
   s.source           = { :git => 'https://github.com/gutoim/AppStack.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '12.4'
 
   s.source_files = 'AppStack/Classes/**/*'
   
@@ -38,5 +38,13 @@ TODO: Add long description of the pod here.
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.dependency 'Action', '~> 4.0.0'
+  s.dependency 'Jelly', '~> 2.2.2'
+  s.dependency 'lottie-ios', '~> 3.1.6'
+  s.dependency 'SkyFloatingLabelTextField', '~> 3.8.0'
+  s.dependency 'RxCocoa', '~> 5.1.1'
+  s.dependency 'RxSwift', '~> 5.1.1'
+  s.dependency 'RxDataSources', '~> 4.0.1'
+  s.dependency 'RxBiBinding', '~> 0.2.5'
+
 end

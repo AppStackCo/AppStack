@@ -1,0 +1,27 @@
+PODS:
+  - AppStack (0.1.0)
+  - Nimble (7.3.4)
+  - Quick (1.2.0)
+
+DEPENDENCIES:
+  - AppStack (from `../`)
+  - Nimble (~> 7.0)
+  - Quick (~> 1.2.0)
+
+SPEC REPOS:
+  trunk:
+    - Nimble
+    - Quick
+
+EXTERNAL SOURCES:
+  AppStack:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  AppStack: 70cc5723cdc42b866278480811aaaefa77fc4779
+  Nimble: 051e3d8912d40138fa5591c78594f95fb172af37
+  Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
+
+PODFILE CHECKSUM: d972258aad446f9a49e20b8db60d095b7f28491c
+
+COCOAPODS: 1.9.1

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoadingView" customModule="AppointmentsBO" customModuleProvider="target">
+            <connections>
+                <outlet property="animationView" destination="KWR-IN-xAv" id="0F8-dL-9v8"/>
+                <outlet property="contentView" destination="iN0-l3-epB" id="IU2-gz-HiZ"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view alpha="0.69999999999999996" contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7hl-2U-sI1">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="9Q3-F1-GkY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KWR-IN-xAv" customClass="AnimationView" customModule="Lottie">
+                                <rect key="frame" x="33" y="322" width="348" height="174"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="KWR-IN-xAv" secondAttribute="height" multiplier="2:1" id="cTs-JJ-Php"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="KWR-IN-xAv" firstAttribute="centerY" secondItem="9Q3-F1-GkY" secondAttribute="centerY" id="9Ac-BY-AcW"/>
+                            <constraint firstItem="KWR-IN-xAv" firstAttribute="centerX" secondItem="9Q3-F1-GkY" secondAttribute="centerX" id="n1q-sL-Tni"/>
+                        </constraints>
+                    </view>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <blurEffect style="regular"/>
+                </visualEffectView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="KWR-IN-xAv" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.84" id="3Nx-kg-FVR"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="7hl-2U-sI1" secondAttribute="trailing" id="KAD-LG-iMB"/>
+                <constraint firstItem="7hl-2U-sI1" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="gs8-2w-PQ5"/>
+                <constraint firstItem="7hl-2U-sI1" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="mqR-qH-W3W"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="7hl-2U-sI1" secondAttribute="bottom" id="weG-xL-pOW"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="139" y="153"/>
+        </view>
+    </objects>
+</document>
