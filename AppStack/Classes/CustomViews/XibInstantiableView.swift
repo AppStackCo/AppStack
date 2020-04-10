@@ -22,7 +22,8 @@ extension XibInstantiableProtocol where Self: UIView {
     }
     
     @discardableResult func instantiate() -> UIView {
-        Bundle.main.loadNibNamed(xibName, owner: self, options: nil)
+        let bundle = Bundle(for: type(of: self))
+        bundle.loadNibNamed(xibName, owner: self, options: nil)
         xibContentView.fixInView(self)
         
         return self

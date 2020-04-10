@@ -8,6 +8,9 @@
 
 import UIKit
 
+final class Dummy {
+}
+
 extension UIStoryboard {
-    static let common = UIStoryboard(name: "Common", bundle: nil)
+    static let common = UIStoryboard(name: "Common", bundle: Bundle(for: Dummy.self))
 }

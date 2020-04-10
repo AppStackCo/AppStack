@@ -30,11 +30,12 @@ TODO: Add long description of the pod here.
 
   s.ios.deployment_target = '12.4'
 
-  s.source_files = 'AppStack/Classes/**/*'
+  s.source_files = 'AppStack/Classes/**/*.swift'
   
   # s.resource_bundles = {
   #   'AppStack' => ['AppStack/Assets/*.png']
   # }
+  s.resources = ['AppStack/Classes/**/*.{json,xib,storyboard}']
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'

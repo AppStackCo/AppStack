@@ -26,7 +26,7 @@ class LoadingView: UIView, XibInstantiableProtocol {
         super.init(frame: frame)
         instantiate()
         
-        let animation = Animation.named("simple-loader")
+        let animation = Animation.named("simple-loader", bundle: Bundle(for: type(of: self)))
         animationView.animation = animation
         animationView.contentMode = .scaleAspectFill
         animationView.loopMode = .loop

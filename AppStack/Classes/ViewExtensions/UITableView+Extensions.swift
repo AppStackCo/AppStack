@@ -51,7 +51,7 @@ extension UITableView {
                          canEditRowAtIndexPath: @escaping RxTableViewSectionedReloadDataSource<TableViewSectionModel>.CanEditRowAtIndexPath)
             -> RxTableViewSectionedReloadDataSource<TableViewSectionModel> {
         cellIdentifiers.forEach { cellIdentifier in
-            register(UINib(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
+            register(UINib(nibName: cellIdentifier, bundle: Bundle(for: type(of: self))), forCellReuseIdentifier: cellIdentifier)
         }
                 
         return .init(configureCell: configureCell, canEditRowAtIndexPath: canEditRowAtIndexPath)
