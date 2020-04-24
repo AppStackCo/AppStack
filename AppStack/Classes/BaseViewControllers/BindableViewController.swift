@@ -37,17 +37,21 @@ extension BindableViewController where Self: UIViewController {
 
 extension BindableViewController where Self: UIViewController, Self.VM: ScreenFlowViewModel {
     func addLeftBarButtonItem(image: UIImage? = UIImage(named: "chevron.left")) {
-        let leftBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: nil, action: nil)
-        
-        self.navigationItem.leftBarButtonItem = leftBarButtonItem
-        self.navigationItem.hidesBackButton = true
+        if let image = image {
+            let leftBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: nil, action: nil)
+            
+            self.navigationItem.leftBarButtonItem = leftBarButtonItem
+            self.navigationItem.hidesBackButton = true
+        }
     }
     
     public func addRightBarButtonItem(image: UIImage? = nil) {
-        let rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: nil, action: nil)
-            
-        self.navigationItem.rightBarButtonItem = rightBarButtonItem
-        self.navigationItem.hidesBackButton = true
+        if let image = image {
+            let rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: nil, action: nil)
+                
+            self.navigationItem.rightBarButtonItem = rightBarButtonItem
+            self.navigationItem.hidesBackButton = true
+        }
     }
     
     public func bindBarButtonActions() {

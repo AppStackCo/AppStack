@@ -14,6 +14,10 @@ public protocol BaseTableViewSectionViewModel {
 
 public struct TableViewSectionViewModel: BaseTableViewSectionViewModel {
     public let title: String?
+    
+    public init(title: String?) {
+        self.title = title
+    }
 }
 
 public typealias TableViewSectionModel = SectionModel<BaseTableViewSectionViewModel, BaseTableViewCellViewModel>

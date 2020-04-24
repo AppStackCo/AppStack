@@ -11,7 +11,7 @@ import RxDataSources
 import UIKit
 
 extension UITableView {
-    func setup() {
+    public func setup() {
         dataSource = nil
         alwaysBounceVertical = false
         rowHeight = UITableView.automaticDimension

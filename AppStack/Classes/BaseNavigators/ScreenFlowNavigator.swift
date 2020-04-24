@@ -12,6 +12,7 @@ public protocol ScreenFlowNavigator {
     func dismiss()
     func dismiss(completionHandler: (() -> Void)?)
     func navigateBack()
+    func navigateToRoot()
 }
 
 extension ScreenFlowNavigator where Self: BaseNavigator {
@@ -24,6 +25,10 @@ extension ScreenFlowNavigator where Self: BaseNavigator {
     }
     
     public func navigateBack() {
+        self.baseController.dismiss(animated: true)
+    }
+    
+    public func navigateToRoot() {
         self.baseController.dismiss(animated: true)
     }
 }
@@ -39,5 +44,9 @@ extension ScreenFlowNavigator where Self: BaseNavigator, Self.VC: UINavigationCo
     
     func navigateBack() {
         self.baseController.popViewController(animated: true)
+    }
+    
+    func navigateToRoot() {
+        self.baseController.popToRootViewController(animated: true)
     }
 }

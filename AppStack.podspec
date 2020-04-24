@@ -47,5 +47,5 @@ TODO: Add long description of the pod here.
   s.dependency 'RxSwift', '~> 5.1.1'
   s.dependency 'RxDataSources', '~> 4.0.1'
   s.dependency 'RxBiBinding', '~> 0.2.5'
-
+  s.dependency 'SPPermissions', '~> 5.3.2'
 end
