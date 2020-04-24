@@ -48,6 +48,7 @@ extension BaseConnector {
     }
     
     public func buildViewModel(navigator: Navigator, inputData: InputData) -> ViewModel {
+        // TODO: input data is lost here
         buildViewModel(navigator: navigator)
     }
 }
