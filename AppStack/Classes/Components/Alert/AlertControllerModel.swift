@@ -61,8 +61,7 @@ public struct AlertControllerModel {
     let actions: [AlertActionModel]
     let isTapBackgroundToDismissEnabled: Bool
     
-    public init(title: String? = nil, message: String? = nil, isTapBackgroundToDismissEnabled: Bool = true,
-         style: AlertControllerStyle, actions: [AlertActionModel]) {
+    public init(title: String? = nil, message: String? = nil, isTapBackgroundToDismissEnabled: Bool = true, style: AlertControllerStyle, actions: [AlertActionModel]) {
         self.title = title
         self.message = message
         self.isTapBackgroundToDismissEnabled = isTapBackgroundToDismissEnabled

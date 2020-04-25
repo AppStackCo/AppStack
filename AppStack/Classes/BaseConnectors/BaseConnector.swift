@@ -21,8 +21,7 @@ public protocol BaseConnector: class {
 }
 
 extension BaseConnector {
-    public func buildViewController<VC: UIViewController>(navigator: Navigator, storyboard: UIStoryboard? = nil,
-                                                               inputData: InputData? = nil) -> VC {
+    public func buildViewController<VC: UIViewController>(navigator: Navigator, storyboard: UIStoryboard? = nil, inputData: InputData? = nil) -> VC {
         var vm: ViewModel
         if let inputData = inputData {
             vm = buildViewModel(navigator: navigator, inputData: inputData)

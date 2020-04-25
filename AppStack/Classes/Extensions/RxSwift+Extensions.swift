@@ -15,9 +15,9 @@ extension Observable {
                 .subscribe(onCompleted: {
                     observable.onNext(())
                     observable.onCompleted()
-                }) { error in
+                }, onError: { error in
                     observable.onError(error)
-                }
+                })
             
             return Disposables.create {
                 disposable.dispose()
