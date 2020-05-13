@@ -24,7 +24,11 @@ extension UITableView {
         showsVerticalScrollIndicator = false
 
         let backgroundView = UIView(frame: self.bounds)
-        backgroundView.backgroundColor = .white
+        if #available(iOS 13, *) {
+            backgroundView.backgroundColor = .systemBackground
+        } else {
+            backgroundView.backgroundColor = .white
+        }
         self.backgroundView = backgroundView
 
         self.tableFooterView = UIView(frame: CGRect.zero)
