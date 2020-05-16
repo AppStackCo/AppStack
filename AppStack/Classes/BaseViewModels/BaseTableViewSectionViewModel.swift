@@ -10,13 +10,16 @@ import RxDataSources
 
 public protocol BaseTableViewSectionViewModel {
     var title: String? { get }
+    var titleTextAlignment: NSTextAlignment? { get }
 }
 
 public struct TableViewSectionViewModel: BaseTableViewSectionViewModel {
     public let title: String?
+    public let titleTextAlignment: NSTextAlignment?
     
-    public init(title: String?) {
+    public init(title: String?, titleTextAlignment: NSTextAlignment = .left) {
         self.title = title
+        self.titleTextAlignment = titleTextAlignment
     }
 }
 
