@@ -34,19 +34,19 @@ extension ScreenFlowNavigator where Self: BaseNavigator {
 }
 
 extension ScreenFlowNavigator where Self: BaseNavigator, Self.VC: UINavigationController {
-    func dismiss() {
+    public func dismiss() {
         self.baseController.dismiss(animated: true)
     }
     
-    func dismiss(completionHandler: (() -> Void)?) {
+    public func dismiss(completionHandler: (() -> Void)?) {
         self.baseController.dismiss(animated: true, completion: completionHandler)
     }
     
-    func navigateBack() {
+    public func navigateBack() {
         self.baseController.popViewController(animated: true)
     }
     
-    func navigateToRoot() {
+    public func navigateToRoot() {
         self.baseController.popToRootViewController(animated: true)
     }
 }

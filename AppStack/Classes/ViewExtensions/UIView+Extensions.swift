@@ -31,7 +31,7 @@ extension UIView {
             topAnchor.constraint(equalTo: container.topAnchor, constant: anchorPadding.top),
             bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: anchorPadding.bottom),
             leftAnchor.constraint(equalTo: container.leftAnchor, constant: anchorPadding.left),
-            rightAnchor.constraint(equalTo: container.rightAnchor, constant: anchorPadding.right),
+            rightAnchor.constraint(equalTo: container.rightAnchor, constant: anchorPadding.right)
         ])
     }
 }
