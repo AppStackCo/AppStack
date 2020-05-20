@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'AppStack'
-  s.version          = '0.1.0'
+  s.version          = '0.2.0'
   s.summary          = 'A short description of AppStack.'
 
 # This description is used to generate tags and improve search results.
@@ -48,5 +48,5 @@ TODO: Add long description of the pod here.
   s.dependency 'RxDataSources', '~> 4.0.1'
   s.dependency 'RxBiBinding', '~> 0.2.5'
   s.dependency 'SPPermissions/Notification'
-  # s.dependency 'SPPermissions/Contacts'
+  s.dependency 'SPPermissions/Contacts'
 end

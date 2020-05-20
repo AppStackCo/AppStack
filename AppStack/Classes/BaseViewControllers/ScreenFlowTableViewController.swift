@@ -16,5 +16,6 @@ open class ScreenFlowTableViewController<VM: ViewModelProtocol & ScreenFlowViewM
     open override func bindViewModel() {
         super.bindViewModel()
         bindBarButtonActions()
+        navigationItem.title = viewModel.screenTitle
     }
 }

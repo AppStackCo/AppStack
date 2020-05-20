@@ -19,11 +19,12 @@ open class ScreenFlowViewController<VM: ViewModelProtocol & ScreenFlowViewModel 
         addLeftBarButtonItem()
         bindViewModel()
         
-        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
+        navigationController?.interactivePopGestureRecognizer?.delegate = self
     }
     
     open func bindViewModel() {
         bindBarButtonActions()
         setupLoading()
+        navigationItem.title = viewModel.screenTitle
     }
 }
