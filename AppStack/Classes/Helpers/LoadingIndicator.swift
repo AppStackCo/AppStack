@@ -10,13 +10,13 @@ import RxCocoa
 import RxSwift
 import UIKit
 
-class LoadingIndicator {
+public class LoadingIndicator {
     private enum LoadingStatus {
         case dismiss
         case present
     }
     
-    static let shared = LoadingIndicator()
+    public static let shared = LoadingIndicator()
     private let statusSubject = PublishRelay<LoadingStatus>()
     private let loadingView = LoadingView(frame: CGRect.zero)
     let disposeBag = DisposeBag()
@@ -52,11 +52,11 @@ class LoadingIndicator {
             .disposed(by: disposeBag)
     }
     
-    func presentLoadingIndicator() {
+    public func presentLoadingIndicator() {
         statusSubject.accept(.present)
     }
     
-    func dismissLoadingIndicator() {
+    public func dismissLoadingIndicator() {
         statusSubject.accept(.dismiss)
     }
 }

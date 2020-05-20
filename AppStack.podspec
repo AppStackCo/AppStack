@@ -48,5 +48,5 @@ TODO: Add long description of the pod here.
   s.dependency 'RxDataSources', '~> 4.0.1'
   s.dependency 'RxBiBinding', '~> 0.2.5'
   s.dependency 'SPPermissions/Notification'
-  s.dependency 'SPPermissions/Contacts'
+  # s.dependency 'SPPermissions/Contacts'
 end
