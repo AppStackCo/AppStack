@@ -60,4 +60,16 @@ public enum TextStyle {
             .with(kern: kern)
             .build()
     }
+    
+    public var stringAttributes: [NSAttributedString.Key: Any] {
+        var attrs: [NSAttributedString.Key: Any] = [
+            .font: font,
+            .foregroundColor: color]
+        
+        if let kern = kern {
+            attrs[.kern] = kern
+        }
+        
+        return attrs
+    }
 }
