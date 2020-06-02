@@ -8,56 +8,31 @@
 
 import UIKit
 
-public enum TextStyle {
-    case alertTitle
-    case alertMessage
-    case textFieldInput
-    case textFieldPlaceholder
-    case label
+public struct TextStyle {
+    let font: UIFont
+    let color: UIColor
+    let kern: CGFloat?
+    let lineSpacing: CGFloat?
     
-    var font: UIFont {
-        switch self {
-        case .alertTitle:
-            return .systemFont(ofSize: 20)
-        case .alertMessage, .textFieldInput, .label:
-            return .systemFont(ofSize: 16)
-        case .textFieldPlaceholder:
-            return .systemFont(ofSize: 12)
-        }
+    public init(font: UIFont, color: UIColor, kern: CGFloat? = nil, lineSpacing: CGFloat? = nil) {
+        self.font = font
+        self.color = color
+        self.kern = kern
+        self.lineSpacing = lineSpacing
     }
     
-    var color: UIColor {
-        switch self {
-        case .textFieldInput, .alertTitle, .alertMessage, .label:
-            return .black
-        case .textFieldPlaceholder:
-            return .darkGray
-        }
-    }
+    public func attributedText(for text: String, newColor: UIColor? = nil) -> NSAttributedString? {
     
-    var uppercased: Bool {
-        switch self {
-        case .textFieldInput, .textFieldPlaceholder:
-            return true
-        default:
-            return false
+        var usedColor = color
+        if let newColor = newColor {
+            usedColor = newColor
         }
-    }
-    
-    var kern: CGFloat? {
-        switch self {
-        case .textFieldInput, .textFieldPlaceholder:
-            return 1.5
-        default:
-            return nil
-        }
-    }
-    
-    public func attributedText(for text: String?) -> NSAttributedString? {
-        NSAttributedStringBuilder(baseString: text)
+        
+        return  NSAttributedStringBuilder(baseString: text)
             .with(font: font)
-            .with(foregroundColor: color)
+            .with(foregroundColor: usedColor)
             .with(kern: kern)
+            .with(lineSpacing: lineSpacing)
             .build()
     }
     

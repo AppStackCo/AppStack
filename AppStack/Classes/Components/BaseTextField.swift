@@ -58,7 +58,7 @@ public class BaseTextField: SkyFloatingLabelTextField {
             fatalError("there is no text field style assigned to this text field")
         }
         
-        let placeholderText = placeholderTextStyle.uppercased ? placeholder?.uppercased() : placeholder
+        let placeholderText = placeholder?.uppercased()
        
         attributedPlaceholder = NSAttributedStringBuilder(baseString: placeholderText ?? "")
             .with(font: placeholderTextStyle.font)

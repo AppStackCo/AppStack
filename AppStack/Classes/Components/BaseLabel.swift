@@ -9,10 +9,10 @@ import UIKit
 
 public class BaseLabel: UILabel {
     
-    var textStyle: TextStyle2!
+    public var textStyle: TextStyle!
     
     public func setText(_ text: String,
-                 textStyle newStyle: TextStyle2? = nil,
+                 textStyle newStyle: TextStyle? = nil,
                  newColor: UIColor? = nil) {
         
         if let newStyle = newStyle {
