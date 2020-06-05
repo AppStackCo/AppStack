@@ -17,60 +17,73 @@ extension CGFloat {
 
 /// Views
 
-//let roundedStyle: (UIView) -> Void = {
-//    $0.clipsToBounds = true
-//    $0.layer.cornerRadius = 6
+//func roundedStyle(radius: CGFloat) -> (UIView) -> Void {
+//    return {
+//        $0.clipsToBounds = true
+//        $0.layer.cornerRadius = radius
+//    }
 //}
 
-let roundedStyle: (UIView) -> Void = concat(
-    mut(\.clipsToBounds, true),
-    mut(\.layer.cornerRadius, 6)
-)
+func roundedStyle(radius: CGFloat) -> (UIView) -> Void {
+    return concat(
+        mut(\.clipsToBounds, true),
+        mut(\.layer.cornerRadius, radius)
+    )
+}
 
-func borderedStyle(_ color: UIColor) -> (UIView) -> Void {
+func borderedStyle(color: UIColor, width: CGFloat) -> (UIView) -> Void {
     return { view in
         view.layer.borderColor = color.cgColor
-        view.layer.borderWidth = 2
+        view.layer.borderWidth = width
     }
 }
 
+let as_roundedStyle: (UIView) -> Void = roundedStyle(radius: 6)
+let as_borderedStyle: (UIView) -> Void = borderedStyle(color: .as_primary, width: 2.0)
+
 /// Buttons
 
-let baseButtonStyle: (UIButton) -> Void = {
-    $0.contentEdgeInsets = UIEdgeInsets(top: .as_grid(3), left: .as_grid(4), bottom: .as_grid(3), right: .as_grid(4))
-    $0.titleLabel?.font = .systemFont(ofSize: 18, weight: .medium)
+let as_baseButtonStyle: (UIButton) -> Void = {
+    $0.contentEdgeInsets = UIEdgeInsets(
+        top: .as_grid(3),
+        left: .as_grid(4),
+        bottom: .as_grid(3),
+        right: .as_grid(4))
+    $0.titleLabel?.font = .as_heading2
 }
 
-let roundedButtonStyle = concat(
-    baseButtonStyle,
-    roundedStyle
+let as_roundedButtonStyle = concat(
+    as_baseButtonStyle,
+    as_roundedStyle
 )
 
-public let borderedButtonStyle =
+public let as_borderedButtonStyle =
     concat(
-        baseButtonStyle,
-        roundedStyle,
-        borderedStyle(.black)) {
+        as_baseButtonStyle,
+        as_roundedStyle,
+        as_borderedStyle) {
             $0.tintColor = .black
         }
 
-public let filledButtonStyle = concat(roundedButtonStyle) {
-    $0.backgroundColor = .black
-    $0.tintColor = .white
+public let as_filledButtonStyle =
+    concat(as_roundedButtonStyle) {
+        $0.backgroundColor = .black
+        $0.tintColor = .white
 }
 
-public let simpleButtonStyle = concat(baseButtonStyle) {
-    $0.tintColor = .darkGray
+public let as_simpleButtonStyle =
+    concat(as_baseButtonStyle) {
+        $0.tintColor = .darkGray
 }
 
 /// Labels
 
 /// Text fields
 
-public let defaultTextFieldStyle: (BaseTextField) -> Void  = {
+public let as_defaultTextFieldStyle: (BaseTextField) -> Void  = {
     
-    $0.textStyle = .textFieldInput
-    $0.placeholderTextStyle = .textFieldPlaceholder
+    $0.textStyle = .as_textFieldInput
+    $0.placeholderTextStyle = .as_textFieldPlaceholder
     
     $0.tintColor = .black
     $0.textAlignment = .left
