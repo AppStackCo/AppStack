@@ -1,5 +1,5 @@
 //
-//  Style.swift
+//  Styles.swift
 //  AppointmentsBO
 //
 //  Created by Marius Gutoi on 29/05/2020.
@@ -15,7 +15,7 @@ extension CGFloat {
   }
 }
 
-// views
+/// Views
 
 //let roundedStyle: (UIView) -> Void = {
 //    $0.clipsToBounds = true
@@ -34,7 +34,7 @@ func borderedStyle(_ color: UIColor) -> (UIView) -> Void {
     }
 }
 
-// buttons
+/// Buttons
 
 let baseButtonStyle: (UIButton) -> Void = {
     $0.contentEdgeInsets = UIEdgeInsets(top: .as_grid(3), left: .as_grid(4), bottom: .as_grid(3), right: .as_grid(4))
@@ -54,7 +54,6 @@ public let borderedButtonStyle =
             $0.tintColor = .black
         }
 
-
 public let filledButtonStyle = concat(roundedButtonStyle) {
     $0.backgroundColor = .black
     $0.tintColor = .white
@@ -64,9 +63,9 @@ public let simpleButtonStyle = concat(baseButtonStyle) {
     $0.tintColor = .darkGray
 }
 
-// labels
+/// Labels
 
-// text fields
+/// Text fields
 
 public let defaultTextFieldStyle: (BaseTextField) -> Void  = {
     
@@ -77,10 +76,8 @@ public let defaultTextFieldStyle: (BaseTextField) -> Void  = {
     $0.textAlignment = .left
 }
 
-// text views
+/// Text views
 
-// navigation bars
+/// Navigation bars
 
-// tabbar
-
-// fonts
+/// Tabbar
