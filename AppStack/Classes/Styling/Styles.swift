@@ -10,7 +10,7 @@ import Overture
 import UIKit
 
 extension CGFloat {
-  public static func as_grid(_ value: Int) -> CGFloat {
+  public static func asGrid(_ value: Int) -> CGFloat {
     return CGFloat(value) * 4.0
   }
 }
@@ -38,41 +38,41 @@ func borderedStyle(color: UIColor, width: CGFloat) -> (UIView) -> Void {
     }
 }
 
-let as_roundedStyle: (UIView) -> Void = roundedStyle(radius: 6)
-let as_borderedStyle: (UIView) -> Void = borderedStyle(color: .as_primary, width: 2.0)
+let asRoundedStyle: (UIView) -> Void = roundedStyle(radius: 6)
+let asBorderedStyle: (UIView) -> Void = borderedStyle(color: .asPrimary, width: 2.0)
 
 /// Buttons
 
-let as_baseButtonStyle: (UIButton) -> Void = {
+let asBaseButtonStyle: (UIButton) -> Void = {
     $0.contentEdgeInsets = UIEdgeInsets(
-        top: .as_grid(3),
-        left: .as_grid(4),
-        bottom: .as_grid(3),
-        right: .as_grid(4))
-    $0.titleLabel?.font = .as_heading2
+        top: .asGrid(3),
+        left: .asGrid(4),
+        bottom: .asGrid(3),
+        right: .asGrid(4))
+    $0.titleLabel?.font = .asHeading2
 }
 
-let as_roundedButtonStyle = concat(
-    as_baseButtonStyle,
-    as_roundedStyle
+let asRoundedButtonStyle = concat(
+    asBaseButtonStyle,
+    asRoundedStyle
 )
 
-public let as_borderedButtonStyle =
+public let asBorderedButtonStyle =
     concat(
-        as_baseButtonStyle,
-        as_roundedStyle,
-        as_borderedStyle) {
+        asBaseButtonStyle,
+        asRoundedStyle,
+        asBorderedStyle) {
             $0.tintColor = .black
         }
 
-public let as_filledButtonStyle =
-    concat(as_roundedButtonStyle) {
+public let asFilledButtonStyle =
+    concat(asRoundedButtonStyle) {
         $0.backgroundColor = .black
         $0.tintColor = .white
 }
 
-public let as_simpleButtonStyle =
-    concat(as_baseButtonStyle) {
+public let asSimpleButtonStyle =
+    concat(asBaseButtonStyle) {
         $0.tintColor = .darkGray
 }
 
@@ -80,10 +80,10 @@ public let as_simpleButtonStyle =
 
 /// Text fields
 
-public let as_defaultTextFieldStyle: (BaseTextField) -> Void  = {
+public let asDefaultTextFieldStyle: (BaseTextField) -> Void  = {
     
-    $0.textStyle = .as_textFieldInput
-    $0.placeholderTextStyle = .as_textFieldPlaceholder
+    $0.textStyle = .asTextFieldInput
+    $0.placeholderTextStyle = .asTextFieldPlaceholder
     
     $0.tintColor = .black
     $0.textAlignment = .left

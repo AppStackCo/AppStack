@@ -23,10 +23,7 @@ public struct TextStyle {
     
     public func attributedText(for text: String, newColor: UIColor? = nil) -> NSAttributedString? {
     
-        var usedColor = color
-        if let newColor = newColor {
-            usedColor = newColor
-        }
+        let usedColor = newColor ?? color
         
         return  NSAttributedStringBuilder(baseString: text)
             .with(font: font)

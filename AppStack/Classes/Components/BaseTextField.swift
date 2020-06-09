@@ -42,10 +42,6 @@ public class BaseTextField: SkyFloatingLabelTextField {
             })
     }
     
-    public override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-    
     public func styledPlaceholderTitle() -> Binder<String?> {
         Binder(self) { textField, placeholder -> Void in
             textField.setupPlaceholderTitle(placeholder: placeholder)

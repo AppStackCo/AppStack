@@ -15,7 +15,7 @@ protocol AlertTextTableViewCellInputData {
 class AlertTextTableViewCell: UITableViewCell, BaseTableViewCell {
     @IBOutlet private weak var label: BaseLabel! {
         didSet {
-            label.textStyle = .as_alertTitle
+            label.textStyle = .asAlertTitle
         }
     }
     

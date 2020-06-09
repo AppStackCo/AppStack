@@ -1,6 +1,6 @@
 //
 //  NSAttributedStringBuilder.swift
-//  AppointmentsBO
+//  AppStack
 //
 //  Created by Alin Popa on 24/03/2020.
 //  Copyright © 2020 AppStack. All rights reserved.
