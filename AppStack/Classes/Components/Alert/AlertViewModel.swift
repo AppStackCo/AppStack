@@ -25,11 +25,11 @@ class AlertViewModel: BaseViewModel<AlertNavigator>, ScreenFlowViewModel, TableV
         var items: [BaseTableViewCellViewModel] = []
         
         if let title = alertControllerModel.title {
-            items.append(AlertTextCellViewModel(text: title, textStyle: .alertTitle))
+            items.append(AlertTextCellViewModel(text: title))
         }
         
         if let message = alertControllerModel.message {
-            items.append(AlertTextCellViewModel(text: message, textStyle: .alertMessage))
+            items.append(AlertMessageCellViewModel(text: message))
         }
         
         items.append(contentsOf: alertControllerModel.actions.map { action -> ButtonCellViewModel in

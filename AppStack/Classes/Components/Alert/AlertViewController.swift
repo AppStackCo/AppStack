@@ -14,8 +14,7 @@ class AlertViewController: DisposableViewController, BindableViewController, Ani
     weak var animator: Animator?
     
     private var tableViewCellIdentifiers: [String] {
-        [AlertTextTableViewCell.identifier,
-         ButtonTableViewCell.identifier]
+        [AlertTextTableViewCell.identifier, AlertMessageTableViewCell.identifier, ButtonTableViewCell.identifier]
     }
     private var tableViewDataSource: RxTableViewSectionedReloadDataSource<TableViewSectionModel>!
     @IBOutlet private weak var tableView: SelfSizedTableView!

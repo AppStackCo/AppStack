@@ -8,6 +8,5 @@
 
 struct AlertTextCellViewModel: AlertTextTableViewCellInputData, BaseTableViewCellViewModel {
     var text: String
-    var textStyle: TextStyle
     let identifier = AlertTextTableViewCell.identifier
 }

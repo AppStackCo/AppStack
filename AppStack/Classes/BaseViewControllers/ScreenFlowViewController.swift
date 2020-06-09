@@ -11,7 +11,7 @@ import UIKit
 open class ScreenFlowViewController<VM: ViewModelProtocol & ScreenFlowViewModel & LoadingStateViewModel>: DisposableViewController,
                                 UIGestureRecognizerDelegate, BindableViewController {
     public var viewModel: VM!
-    public var manuallyLoadView: Bool { false}
+    public var manuallyLoadView: Bool { false }
     
     open override func viewDidLoad() {
         super.viewDidLoad()

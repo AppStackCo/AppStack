@@ -1,5 +1,5 @@
 //
-//  AlertTextTableViewCell.swift
+//  AlertMessageTableViewCell.swift
 //  AppointmentsBO
 //
 //  Created by Alin Popa on 22/03/2020.
@@ -8,14 +8,14 @@
 
 import UIKit
 
-protocol AlertTextTableViewCellInputData {
+protocol AlertMessageTableViewCellInputData {
     var text: String { get }
 }
 
-class AlertTextTableViewCell: UITableViewCell, BaseTableViewCell {
+class AlertMessageTableViewCell: UITableViewCell, BaseTableViewCell {
     @IBOutlet private weak var label: BaseLabel! {
         didSet {
-            label.textStyle = .asAlertTitle
+            label.textStyle = .asAlertMessage
         }
     }
     
