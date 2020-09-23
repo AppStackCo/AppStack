@@ -36,22 +36,30 @@ extension BindableViewController where Self: UIViewController {
 }
 
 extension BindableViewController where Self: UIViewController, Self.VM: ScreenFlowViewModel {
-    func addLeftBarButtonItem(image: UIImage? = UIImage(named: "chevron.left")) {
-        if let image = image {
-            let leftBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: nil, action: nil)
-            
-            self.navigationItem.leftBarButtonItem = leftBarButtonItem
-            self.navigationItem.hidesBackButton = true
+    func addLeftBarButtonItem(image: UIImage?, systemName: String) {
+        let leftBarButtonItem: UIBarButtonItem
+        
+        if #available(iOS 13, *) {
+            leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: systemName), style: .plain, target: nil, action: nil)
+        } else {
+            leftBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: nil, action: nil)
         }
+        
+        navigationItem.leftBarButtonItem = leftBarButtonItem
+        navigationItem.hidesBackButton = true
     }
     
-    public func addRightBarButtonItem(image: UIImage? = nil) {
-        if let image = image {
-            let rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: nil, action: nil)
-                
-            self.navigationItem.rightBarButtonItem = rightBarButtonItem
-            self.navigationItem.hidesBackButton = true
+    public func addRightBarButtonItem(imageName: String, using systemItem: UIBarButtonItem.SystemItem) {
+        let rightBarButtonItem: UIBarButtonItem
+        
+        if #available(iOS 13, *) {
+            rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: imageName), style: .plain, target: nil, action: nil)
+        } else {
+            rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: systemItem, target: nil, action: nil)
         }
+                
+        navigationItem.rightBarButtonItem = rightBarButtonItem
+        navigationItem.hidesBackButton = true
     }
     
     public func bindBarButtonActions() {

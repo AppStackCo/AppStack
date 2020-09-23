@@ -16,7 +16,7 @@ open class ScreenFlowViewController<VM: ViewModelProtocol & ScreenFlowViewModel 
     open override func viewDidLoad() {
         super.viewDidLoad()
         
-        addLeftBarButtonItem()
+        addLeftBarButtonItem(image: UIImage(named: "back"), systemName: "chevron.left")
         bindViewModel()
         
         navigationController?.interactivePopGestureRecognizer?.delegate = self
