@@ -8,7 +8,7 @@
 
 import UIKit
 
-public protocol BindableViewController: class {
+public protocol BindableViewController: AnyObject {
     associatedtype VM
     
     var viewModel: VM! { get set }

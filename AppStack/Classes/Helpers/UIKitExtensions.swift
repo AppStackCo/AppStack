@@ -10,12 +10,12 @@ import class UIKit.UITableViewCell
 import class UIKit.UITableView
 import struct Foundation.IndexPath
 
-protocol ReusableView: class {
+public protocol ReusableView: AnyObject {
     static var reuseIdentifier: String {get}
 }
 
 extension ReusableView {
-    static var reuseIdentifier: String {
+    public static var reuseIdentifier: String {
         return String(describing: self)
     }
 }
@@ -23,13 +23,34 @@ extension ReusableView {
 extension UITableViewCell: ReusableView {
 }
 
-extension UITableView {
+// MARK: UITableViewCell
+extension ReusableView where Self: UITableViewCell {
     
-    func dequeueReusableCell<T: UITableViewCell>(forIndexPath indexPath: IndexPath) -> T {
-        guard let cell = dequeueReusableCell(withIdentifier: T.reuseIdentifier, for: indexPath) as? T else {
-            fatalError("Could not dequeue cell with identifier: \(T.reuseIdentifier)")
+    public static func dequeue(
+        from tableView: UITableView,
+        at indexPath: IndexPath,
+        identifier: String = Self.reuseIdentifier) -> Self {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
+        if let expectedCell = cell as? Self {
+            return expectedCell
         }
         
-        return cell
+        fatalError("TableViewCell is not of exepected type, got \(String(describing: cell)) expected \(String(describing: Self.self))")
+    }
+    
+    static func register(in tableView: UITableView, with identifier: String = Self.reuseIdentifier) {
+        tableView.register(Self.self, forCellReuseIdentifier: identifier)
     }
 }
+
+//extension UITableView {
+//
+//    func dequeueReusableCell<T: UITableViewCell>(forIndexPath indexPath: IndexPath) -> T {
+//        guard let cell = dequeueReusableCell(withIdentifier: T.reuseIdentifier, for: indexPath) as? T else {
+//            fatalError("Could not dequeue cell with identifier: \(T.reuseIdentifier)")
+//        }
+//
+//        return cell
+//    }
+//}
