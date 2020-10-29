@@ -7,7 +7,7 @@
 //
 
 open class ScreenFlowTableViewController<VM: ViewModelProtocol & ScreenFlowViewModel & TableViewViewModelProtocol & LoadingStateViewModel>: BaseTableViewController<VM> {
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         addLeftBarButtonItem(image: UIImage(named: "back"), systemName: "chevron.left")
         
         super.viewDidLoad()
