@@ -11,6 +11,7 @@ import Action
 public protocol ScreenFlowViewModel {
     var leftBarButtonItemAction: CocoaAction { get }
     var rightBarButtonItemAction: CocoaAction { get }
+    var screenTitle: String { get }
 }
 
 extension ScreenFlowViewModel where Self: ViewModelProtocol {
@@ -25,4 +26,6 @@ extension ScreenFlowViewModel where Self: ViewModelProtocol {
     public var rightBarButtonItemAction: CocoaAction {
         CocoaAction { .empty() }
     }
+    
+    public var screenTitle: String { "" }
 }

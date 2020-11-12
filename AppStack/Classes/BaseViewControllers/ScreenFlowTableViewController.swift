@@ -7,8 +7,8 @@
 //
 
 open class ScreenFlowTableViewController<VM: ViewModelProtocol & ScreenFlowViewModel & TableViewViewModelProtocol & LoadingStateViewModel>: BaseTableViewController<VM> {
-    public override func viewDidLoad() {
-        addLeftBarButtonItem()
+    open override func viewDidLoad() {
+        addLeftBarButtonItem(image: UIImage(named: "back"), systemName: "chevron.left")
         
         super.viewDidLoad()
     }
@@ -16,5 +16,6 @@ open class ScreenFlowTableViewController<VM: ViewModelProtocol & ScreenFlowViewM
     open override func bindViewModel() {
         super.bindViewModel()
         bindBarButtonActions()
+        navigationItem.title = viewModel.screenTitle
     }
 }

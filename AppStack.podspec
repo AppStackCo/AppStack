@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'AppStack'
-  s.version          = '0.1.0'
+  s.version          = '0.2.0'
   s.summary          = 'A short description of AppStack.'
 
 # This description is used to generate tags and improve search results.
@@ -35,18 +35,19 @@ TODO: Add long description of the pod here.
   # s.resource_bundles = {
   #   'AppStack' => ['AppStack/Assets/*.png']
   # }
-  s.resources = ['AppStack/Classes/**/*.{json,xib,storyboard}']
+  s.resources = ['AppStack/Classes/**/*.{json,xib,storyboard,xcassets}']
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  s.dependency 'Action', '~> 4.0.0'
-  s.dependency 'Jelly', '~> 2.2.2'
-  s.dependency 'lottie-ios', '~> 3.1.6'
-  s.dependency 'SkyFloatingLabelTextField', '~> 3.8.0'
-  s.dependency 'RxCocoa', '~> 5.1.1'
-  s.dependency 'RxSwift', '~> 5.1.1'
-  s.dependency 'RxDataSources', '~> 4.0.1'
-  s.dependency 'RxBiBinding', '~> 0.2.5'
+  s.dependency 'Overture'
+  s.dependency 'Action'
+  s.dependency 'Jelly'
+  s.dependency 'lottie-ios'
+  s.dependency 'SkyFloatingLabelTextField'
+  s.dependency 'RxCocoa'
+  s.dependency 'RxSwift'
+  s.dependency 'RxDataSources'
+  s.dependency 'RxBiBinding'
   s.dependency 'SPPermissions/Notification'
-  # s.dependency 'SPPermissions/Contacts'
+  s.dependency 'SPPermissions/Contacts'
 end
