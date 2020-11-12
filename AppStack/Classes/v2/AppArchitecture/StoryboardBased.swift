@@ -20,7 +20,7 @@ extension StoryboardBased where Self: UIViewController {
         return String(describing: self)
     }
     
-    static func inflateFromStoryboard() -> Self {
+    public static func inflateFromStoryboard() -> Self {
         return owningStoryboard.instantiate()
     }
 }

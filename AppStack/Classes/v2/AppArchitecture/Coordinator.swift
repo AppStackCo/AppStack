@@ -170,7 +170,7 @@ open class NavigationCoordinator: Coordinator<UINavigationController> {
         debugPrint("---- NAVIGATION COORDINATOR - \(self) - (\(address))")
     }
 
-    public func setup(navigationOption: NavigationCoordinatorOption) {
+    open func setup(navigationOption: NavigationCoordinatorOption) {
         rootViewController = buildRoot()
         
         let container: Container
