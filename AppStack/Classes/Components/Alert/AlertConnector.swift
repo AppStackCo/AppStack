@@ -8,11 +8,11 @@
 
 class AlertConnector: BaseConnector {
     typealias ViewController = AlertViewController
-    typealias Navigator = AlertNavigatorImplementation
+    typealias Navigator = AlertNavigator
     
     var viewModel: AlertViewModel?
     
-    func buildViewModel(navigator: AlertNavigatorImplementation, inputData: AlertControllerModel) -> AlertViewModel {
+    func buildViewModel(navigator: AlertNavigator, inputData: AlertControllerModel) -> AlertViewModel {
         AlertViewModel(navigator: navigator, inputData: inputData)
     }
 }

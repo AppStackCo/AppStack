@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class SectionHeaderBaseTableViewController<VM: ViewModelProtocol & ScreenFlowViewModel & TableViewViewModelProtocol & LoadingStateViewModel>: ScreenFlowTableViewController<VM> {
+open class SectionHeaderBaseTableViewController<VM: ViewModelProtocol & ScreenFlowViewModel & TableViewViewModelProtocol>: ScreenFlowTableViewController<VM> {
     var sectionIdentifier: String { String(describing: TableSectionHeaderView.self) }
     
     public override func viewDidLoad() {
