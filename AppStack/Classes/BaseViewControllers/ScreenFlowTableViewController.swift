@@ -6,7 +6,7 @@
 //  Copyright © 2020 AppStack. All rights reserved.
 //
 
-open class ScreenFlowTableViewController<VM: ViewModelProtocol & ScreenFlowViewModel & TableViewViewModelProtocol & LoadingStateViewModel>: BaseTableViewController<VM> {
+open class ScreenFlowTableViewController<VM: ViewModelProtocol & ScreenFlowViewModel & TableViewViewModelProtocol>: BaseTableViewController<VM> {
     open override func viewDidLoad() {
         addLeftBarButtonItem(image: UIImage(named: "back"), systemName: "chevron.left")
         

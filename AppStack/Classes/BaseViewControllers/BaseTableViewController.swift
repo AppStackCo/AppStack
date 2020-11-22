@@ -10,7 +10,7 @@ import RxDataSources
 import RxSwift
 import UIKit
 
-open class BaseTableViewController<ViewModel: TableViewViewModelProtocol & LoadingStateViewModel>: UITableViewController, UIGestureRecognizerDelegate,
+open class BaseTableViewController<ViewModel: TableViewViewModelProtocol>: UITableViewController, UIGestureRecognizerDelegate,
                                 DisposableProtocol, BindableViewController {
     public let disposeBag = DisposeBag()
     public var viewModel: ViewModel!
@@ -27,7 +27,6 @@ open class BaseTableViewController<ViewModel: TableViewViewModelProtocol & Loadi
         
         setupTableView()
         bindViewModel()
-        setupLoading()
         
         self.navigationController?.interactivePopGestureRecognizer?.delegate = self
     }
