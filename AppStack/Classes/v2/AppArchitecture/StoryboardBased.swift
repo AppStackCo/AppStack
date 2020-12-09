@@ -3,7 +3,7 @@
 //  InvestifyApp
 //
 //  Created by Marius Gutoi on 24/05/2018.
-//  Copyright © 2018 Fooder. All rights reserved.
+//  Copyright © 2018 AppStack. All rights reserved.
 //
 
 import UIKit

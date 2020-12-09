@@ -159,7 +159,7 @@ public enum NavigationCoordinatorOption {
 
 open class NavigationCoordinator: Coordinator<UINavigationController> {
 
-    weak var rootViewController: UIViewController!
+    public weak var rootViewController: UIViewController!
     
     public override init() {
         super.init()
