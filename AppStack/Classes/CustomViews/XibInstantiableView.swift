@@ -8,13 +8,13 @@
 
 import UIKit
 
-protocol XibInstantiableProtocol {
+public protocol XibInstantiableProtocol {
     var xibName: String { get }
     var xibContentView: UIView! { get set }
     func instantiate() -> UIView
 }
 
-extension XibInstantiableProtocol where Self: UIView {
+public extension XibInstantiableProtocol where Self: UIView {
     var xibName: String { String(describing: type(of: self)) }
     
     static func instantiateFromNib<T: UIView>() -> T where T: XibInstantiableProtocol {
@@ -27,5 +27,44 @@ extension XibInstantiableProtocol where Self: UIView {
         xibContentView.fixInView(self)
         
         return self
+    }
+}
+
+open class InstantiableView: UIView, XibInstantiableProtocol {
+    open var xibContentView: UIView!
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        instantiate()
+    }
+    
+    required public init?(coder: NSCoder) {
+        super.init(coder: coder)
+        instantiate()
+    }
+    
+    open override func awakeFromNib() {
+        super.awakeFromNib()
+        instantiate()
+    }
+}
+
+open class InstantiableTableViewCell: UITableViewCell, XibInstantiableProtocol {
+    public var xibName = { String(describing: type(of: self)) }
+    open var xibContentView: UIView!
+    
+    open override var contentView: UIView {
+        get { xibContentView }
+        set { xibContentView = newValue }
+    }
+    
+    required public init?(coder: NSCoder) {
+        super.init(coder: coder)
+        instantiate()
+    }
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        instantiate()
     }
 }
