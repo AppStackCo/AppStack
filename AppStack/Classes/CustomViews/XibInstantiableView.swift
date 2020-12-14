@@ -33,7 +33,7 @@ public extension XibInstantiableProtocol where Self: UIView {
 open class InstantiableView: UIView, XibInstantiableProtocol {
     open var xibContentView: UIView!
     
-    override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
         instantiate()
     }
@@ -50,7 +50,6 @@ open class InstantiableView: UIView, XibInstantiableProtocol {
 }
 
 open class InstantiableTableViewCell: UITableViewCell, XibInstantiableProtocol {
-    public var xibName = { String(describing: type(of: self)) }
     open var xibContentView: UIView!
     
     open override var contentView: UIView {
