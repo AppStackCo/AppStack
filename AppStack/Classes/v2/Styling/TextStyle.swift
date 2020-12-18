@@ -9,10 +9,10 @@
 import UIKit
 
 public struct TextStyle {
-    let font: UIFont
-    let color: UIColor
-    let kern: CGFloat?
-    let lineSpacing: CGFloat?
+    public let font: UIFont
+    public let color: UIColor
+    public let kern: CGFloat?
+    public let lineSpacing: CGFloat?
     
     public init(font: UIFont, color: UIColor, kern: CGFloat? = nil, lineSpacing: CGFloat? = nil) {
         self.font = font
