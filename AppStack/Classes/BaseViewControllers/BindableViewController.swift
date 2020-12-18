@@ -67,18 +67,3 @@ extension BindableViewController where Self: UIViewController, Self.VM: ScreenFl
         navigationItem.rightBarButtonItem?.rx.action = viewModel.rightBarButtonItemAction
     }
 }
-
-extension BindableViewController where Self: UIViewController & DisposableProtocol, Self.VM: LoadingStateViewModel {
-    func setupLoading() {
-        viewModel.loadingStatusDriver
-            .drive(onNext: { status in
-                switch status {
-                case .loading:
-                    LoadingIndicator.shared.presentLoadingIndicator()
-                case .idle:
-                    LoadingIndicator.shared.dismissLoadingIndicator()
-                }
-            })
-            .disposed(by: disposeBag)
-    }
-}

@@ -20,8 +20,7 @@ extension ReusableView {
     }
 }
 
-extension UITableViewCell: ReusableView {
-}
+extension UITableViewCell: ReusableView {}
 
 // MARK: UITableViewCell
 extension ReusableView where Self: UITableViewCell {
@@ -39,18 +38,38 @@ extension ReusableView where Self: UITableViewCell {
         fatalError("TableViewCell is not of exepected type, got \(String(describing: cell)) expected \(String(describing: Self.self))")
     }
     
-    static func register(in tableView: UITableView, with identifier: String = Self.reuseIdentifier) {
+    public static func register(in tableView: UITableView, with identifier: String = Self.reuseIdentifier) {
         tableView.register(Self.self, forCellReuseIdentifier: identifier)
     }
 }
 
-//extension UITableView {
-//
-//    func dequeueReusableCell<T: UITableViewCell>(forIndexPath indexPath: IndexPath) -> T {
-//        guard let cell = dequeueReusableCell(withIdentifier: T.reuseIdentifier, for: indexPath) as? T else {
-//            fatalError("Could not dequeue cell with identifier: \(T.reuseIdentifier)")
+public protocol NibInitializable {
+//    static func instantitate() -> Self
+}
+
+extension NibInitializable where Self: UIView {
+    static var nibName: String {
+        return String(describing: Self.self)
+    }
+    
+    static var nibBundle: Bundle? {
+        return Bundle(for: Self.self)
+    }
+    
+    static var nib: UINib {
+        return UINib(nibName: nibName, bundle: nibBundle)
+    }
+    
+//    static func instantiate() -> Self {
+//        guard let view = nib.instantiate(withOwner: nil, options: nil).first as? Self else {
+//            fatalError("Could not instantiate view from nib with name \(nibName).")
 //        }
-//
-//        return cell
+//        return view
 //    }
-//}
+}
+
+extension ReusableView where Self: UITableViewCell & NibInitializable {
+    public static func register(in tableView: UITableView, with identifier: String = Self.reuseIdentifier) {
+        tableView.register(Self.nib, forCellReuseIdentifier: identifier)
+    }
+}

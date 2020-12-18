@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class ScreenFlowViewController<VM: ViewModelProtocol & ScreenFlowViewModel & LoadingStateViewModel>: DisposableViewController,
+open class ScreenFlowViewController<VM: ViewModelProtocol & ScreenFlowViewModel>: DisposableViewController,
                                 UIGestureRecognizerDelegate, BindableViewController {
     public var viewModel: VM!
     public var manuallyLoadView: Bool { false }
@@ -24,7 +24,6 @@ open class ScreenFlowViewController<VM: ViewModelProtocol & ScreenFlowViewModel 
     
     open func bindViewModel() {
         bindBarButtonActions()
-        setupLoading()
         navigationItem.title = viewModel.screenTitle
     }
 }

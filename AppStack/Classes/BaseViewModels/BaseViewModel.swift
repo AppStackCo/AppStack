@@ -9,29 +9,14 @@
 import RxCocoa
 import RxSwift
 
-public enum LoadingStatus {
-    case loading
-    case idle
-}
-
 public protocol ViewModelProtocol {
     associatedtype N
     var navigator: N { get }
     init(navigator: N)
 }
 
-public protocol LoadingStateViewModel {
-    var loadingStatusDriver: Driver<LoadingStatus> { get }
-}
-
-open class BaseViewModel<N>: ViewModelProtocol, LoadingStateViewModel {
+open class BaseViewModel<N>: ViewModelProtocol {
     public var navigator: N
-    
-    public var loadingStatusSubject = PublishSubject<LoadingStatus>()
-    
-    public var loadingStatusDriver: Driver<LoadingStatus> {
-        loadingStatusSubject.asDriver(onErrorJustReturn: .idle)
-    }
     
     public required init(navigator: N) {
         self.navigator = navigator
