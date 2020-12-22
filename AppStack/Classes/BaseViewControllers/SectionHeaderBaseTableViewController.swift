@@ -31,9 +31,7 @@ open class SectionHeaderBaseTableViewController<VM: ViewModelProtocol & ScreenFl
     
     public override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: sectionIdentifier) as? TableSectionHeaderView {
-            let title = dataSource.sectionModels[section].model.title
-            view.title = title
-            view.titleTextAlignment = dataSource.sectionModels[section].model.titleTextAlignment
+            view.model = dataSource.sectionModels[section].model
             
             return view
         }

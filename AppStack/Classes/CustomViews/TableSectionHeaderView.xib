@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TableSectionHeaderView" customModule="AppStack" customModuleProvider="target">
+            <connections>
+                <outlet property="collapseButton" destination="Mh5-m6-1Qz" id="W2c-G0-ksK"/>
+                <outlet property="mainView" destination="DBY-D5-Vin" id="h8t-DO-uRD"/>
+                <outlet property="secondaryView" destination="dgV-i8-OL8" id="VCE-7T-Scl"/>
+                <outlet property="titleLabel" destination="g0K-Fd-8hJ" id="Mwb-kD-cKM"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="DBY-D5-Vin">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dgV-i8-OL8">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="a5o-vQ-MCA">
+                            <rect key="frame" x="10" y="10" width="394" height="40"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g0K-Fd-8hJ">
+                                    <rect key="frame" x="0.0" y="0.0" width="344" height="40"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mh5-m6-1Qz">
+                                    <rect key="frame" x="354" y="0.0" width="40" height="40"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="Mh5-m6-1Qz" secondAttribute="height" multiplier="1:1" id="alB-20-QPH"/>
+                                    </constraints>
+                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <state key="normal" image="chevron.down" catalog="system">
+                                        <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                </button>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="a5o-vQ-MCA" secondAttribute="trailing" constant="10" id="Lit-9b-N8Z"/>
+                        <constraint firstAttribute="bottom" secondItem="a5o-vQ-MCA" secondAttribute="bottom" constant="10" id="cQn-Tx-TN0"/>
+                        <constraint firstItem="a5o-vQ-MCA" firstAttribute="top" secondItem="dgV-i8-OL8" secondAttribute="top" constant="10" id="crG-ws-dxK"/>
+                        <constraint firstItem="a5o-vQ-MCA" firstAttribute="leading" secondItem="dgV-i8-OL8" secondAttribute="leading" constant="10" id="p4U-rK-BnD"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="Oap-Bc-dC6"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="Oap-Bc-dC6" firstAttribute="trailing" secondItem="dgV-i8-OL8" secondAttribute="trailing" id="4pg-zI-vq8"/>
+                <constraint firstItem="dgV-i8-OL8" firstAttribute="leading" secondItem="Oap-Bc-dC6" secondAttribute="leading" id="NTQ-cl-9Uu"/>
+                <constraint firstItem="dgV-i8-OL8" firstAttribute="top" secondItem="DBY-D5-Vin" secondAttribute="top" id="hP9-v0-fdV"/>
+                <constraint firstAttribute="bottom" secondItem="dgV-i8-OL8" secondAttribute="bottom" id="qAz-Kc-qgt"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-323.19999999999999" y="51.27436281859071"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="chevron.down" catalog="system" width="128" height="72"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
