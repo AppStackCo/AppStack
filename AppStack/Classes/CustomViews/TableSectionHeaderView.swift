@@ -6,45 +6,42 @@
 //  Copyright © 2020 AppStack. All rights reserved.
 //
 
-import UIKit
+import RxGesture
+import RxSwift
 
-class TableSectionHeaderView: UITableViewHeaderFooterView, BaseTableViewSectionViewModel {
-    var title: String? {
+class TableSectionHeaderView: UITableViewHeaderFooterView, XibInstantiableProtocol {
+    @IBOutlet private var mainView: UIView! {
+        get { xibContentView }
+        set { xibContentView = newValue }
+    }
+    @IBOutlet private weak var secondaryView: UIView!
+    @IBOutlet private weak var titleLabel: UILabel!
+    
+    var xibContentView: UIView!
+    
+    var model: BaseTableViewSectionViewModel? {
         didSet {
-            titleLabel.text = title
+            setupModel()
         }
     }
-    
-    var titleTextAlignment: NSTextAlignment? {
-        didSet {
-            if let alignment = titleTextAlignment {
-                titleLabel.textAlignment = alignment
-            }
-        }
-    }
-    
-    private var titleLabel = UILabel()
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        instantiate()
     }
     
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
-        
-        setupTitleLabel()
+        instantiate()
     }
     
-    private func setupTitleLabel() {
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+    private func setupModel() {
+        titleLabel.text = model?.title
         
-        contentView.addSubview(titleLabel)
+        if let alignment = model?.titleTextAlignment {
+            titleLabel.textAlignment = alignment
+        }
         
-        NSLayoutConstraint.activate([
-            titleLabel.heightAnchor.constraint(equalToConstant: 60),
-            titleLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor),
-            titleLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            titleLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
-        ])
+        secondaryView.backgroundColor = model?.backgroundColor ?? .black
     }
 }
