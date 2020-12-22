@@ -16,7 +16,6 @@ class TableSectionHeaderView: UITableViewHeaderFooterView, XibInstantiableProtoc
     }
     @IBOutlet private weak var secondaryView: UIView!
     @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var collapseButton: UIView!
     
     var xibContentView: UIView!
     

@@ -11,7 +11,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TableSectionHeaderView" customModule="AppStack" customModuleProvider="target">
             <connections>
-                <outlet property="collapseButton" destination="Mh5-m6-1Qz" id="W2c-G0-ksK"/>
                 <outlet property="mainView" destination="DBY-D5-Vin" id="h8t-DO-uRD"/>
                 <outlet property="secondaryView" destination="dgV-i8-OL8" id="VCE-7T-Scl"/>
                 <outlet property="titleLabel" destination="g0K-Fd-8hJ" id="Mwb-kD-cKM"/>
@@ -25,34 +24,19 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dgV-i8-OL8">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                     <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="a5o-vQ-MCA">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g0K-Fd-8hJ">
                             <rect key="frame" x="10" y="10" width="394" height="40"/>
-                            <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g0K-Fd-8hJ">
-                                    <rect key="frame" x="0.0" y="0.0" width="344" height="40"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mh5-m6-1Qz">
-                                    <rect key="frame" x="354" y="0.0" width="40" height="40"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" secondItem="Mh5-m6-1Qz" secondAttribute="height" multiplier="1:1" id="alB-20-QPH"/>
-                                    </constraints>
-                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <state key="normal" image="chevron.down" catalog="system">
-                                        <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </state>
-                                </button>
-                            </subviews>
-                        </stackView>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="a5o-vQ-MCA" secondAttribute="trailing" constant="10" id="Lit-9b-N8Z"/>
-                        <constraint firstAttribute="bottom" secondItem="a5o-vQ-MCA" secondAttribute="bottom" constant="10" id="cQn-Tx-TN0"/>
-                        <constraint firstItem="a5o-vQ-MCA" firstAttribute="top" secondItem="dgV-i8-OL8" secondAttribute="top" constant="10" id="crG-ws-dxK"/>
-                        <constraint firstItem="a5o-vQ-MCA" firstAttribute="leading" secondItem="dgV-i8-OL8" secondAttribute="leading" constant="10" id="p4U-rK-BnD"/>
+                        <constraint firstAttribute="bottom" secondItem="g0K-Fd-8hJ" secondAttribute="bottom" constant="10" id="GAc-lM-WiW"/>
+                        <constraint firstAttribute="trailing" secondItem="g0K-Fd-8hJ" secondAttribute="trailing" constant="10" id="Ydw-ux-8az"/>
+                        <constraint firstItem="g0K-Fd-8hJ" firstAttribute="top" secondItem="dgV-i8-OL8" secondAttribute="top" constant="10" id="m4y-Gj-bq0"/>
+                        <constraint firstItem="g0K-Fd-8hJ" firstAttribute="leading" secondItem="dgV-i8-OL8" secondAttribute="leading" constant="10" id="qod-hV-Hed"/>
                     </constraints>
                 </view>
             </subviews>
@@ -69,7 +53,6 @@
         </view>
     </objects>
     <resources>
-        <image name="chevron.down" catalog="system" width="128" height="72"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
