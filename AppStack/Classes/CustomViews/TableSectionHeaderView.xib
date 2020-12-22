@@ -22,10 +22,10 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dgV-i8-OL8">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                    <rect key="frame" x="0.0" y="10" width="414" height="40"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g0K-Fd-8hJ">
-                            <rect key="frame" x="10" y="10" width="394" height="40"/>
+                            <rect key="frame" x="10" y="0.0" width="394" height="40"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
@@ -33,9 +33,9 @@
                     </subviews>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="g0K-Fd-8hJ" secondAttribute="bottom" constant="10" id="GAc-lM-WiW"/>
+                        <constraint firstAttribute="bottom" secondItem="g0K-Fd-8hJ" secondAttribute="bottom" priority="750" id="GAc-lM-WiW"/>
                         <constraint firstAttribute="trailing" secondItem="g0K-Fd-8hJ" secondAttribute="trailing" constant="10" id="Ydw-ux-8az"/>
-                        <constraint firstItem="g0K-Fd-8hJ" firstAttribute="top" secondItem="dgV-i8-OL8" secondAttribute="top" constant="10" id="m4y-Gj-bq0"/>
+                        <constraint firstItem="g0K-Fd-8hJ" firstAttribute="top" secondItem="dgV-i8-OL8" secondAttribute="top" priority="750" id="m4y-Gj-bq0"/>
                         <constraint firstItem="g0K-Fd-8hJ" firstAttribute="leading" secondItem="dgV-i8-OL8" secondAttribute="leading" constant="10" id="qod-hV-Hed"/>
                     </constraints>
                 </view>
@@ -45,8 +45,8 @@
             <constraints>
                 <constraint firstItem="Oap-Bc-dC6" firstAttribute="trailing" secondItem="dgV-i8-OL8" secondAttribute="trailing" id="4pg-zI-vq8"/>
                 <constraint firstItem="dgV-i8-OL8" firstAttribute="leading" secondItem="Oap-Bc-dC6" secondAttribute="leading" id="NTQ-cl-9Uu"/>
-                <constraint firstItem="dgV-i8-OL8" firstAttribute="top" secondItem="DBY-D5-Vin" secondAttribute="top" id="hP9-v0-fdV"/>
-                <constraint firstAttribute="bottom" secondItem="dgV-i8-OL8" secondAttribute="bottom" id="qAz-Kc-qgt"/>
+                <constraint firstItem="dgV-i8-OL8" firstAttribute="top" secondItem="DBY-D5-Vin" secondAttribute="top" priority="750" constant="10" id="hP9-v0-fdV"/>
+                <constraint firstAttribute="bottom" secondItem="dgV-i8-OL8" secondAttribute="bottom" priority="750" constant="10" id="qAz-Kc-qgt"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="-323.19999999999999" y="51.27436281859071"/>

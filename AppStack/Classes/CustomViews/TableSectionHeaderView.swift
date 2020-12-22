@@ -42,6 +42,6 @@ class TableSectionHeaderView: UITableViewHeaderFooterView, XibInstantiableProtoc
             titleLabel.textAlignment = alignment
         }
         
-        secondaryView.backgroundColor = model?.backgroundColor ?? .black
+        secondaryView.backgroundColor = model?.backgroundColor ?? .lightGray
     }
 }
