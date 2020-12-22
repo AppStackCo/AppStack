@@ -6,7 +6,6 @@
 //  Copyright © 2020 AppStack. All rights reserved.
 //
 
-import RxGesture
 import RxSwift
 
 class TableSectionHeaderView: UITableViewHeaderFooterView, XibInstantiableProtocol {
