@@ -40,7 +40,7 @@ open class InstantiableView: UIView, XibInstantiableProtocol {
     
     required public init?(coder: NSCoder) {
         super.init(coder: coder)
-        instantiate()
+//        instantiate()
     }
     
     open override func awakeFromNib() {
