@@ -30,9 +30,6 @@ extension UITableView {
             backgroundView.backgroundColor = .white
         }
         self.backgroundView = backgroundView
-
-        self.tableFooterView = UIView(frame: CGRect.zero)
-        self.tableHeaderView = UIView(frame: CGRect.zero)
     }
     
     func setupDefaultDataSource(cellIdentifiers: [String]) -> RxTableViewSectionedReloadDataSource<TableViewSectionModel> {
