@@ -20,13 +20,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7hl-2U-sI1">
-                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="9Q3-F1-GkY">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KWR-IN-xAv" customClass="AnimationView" customModule="Lottie">
-                                <rect key="frame" x="33" y="322" width="348" height="174"/>
+                                <rect key="frame" x="33" y="361" width="348" height="174"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="KWR-IN-xAv" secondAttribute="height" multiplier="2:1" id="cTs-JJ-Php"/>
@@ -49,8 +49,8 @@
                 <constraint firstItem="KWR-IN-xAv" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.84" id="3Nx-kg-FVR"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="7hl-2U-sI1" secondAttribute="trailing" id="KAD-LG-iMB"/>
                 <constraint firstItem="7hl-2U-sI1" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="gs8-2w-PQ5"/>
-                <constraint firstItem="7hl-2U-sI1" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="mqR-qH-W3W"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="7hl-2U-sI1" secondAttribute="bottom" id="weG-xL-pOW"/>
+                <constraint firstItem="7hl-2U-sI1" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="mqR-qH-W3W"/>
+                <constraint firstAttribute="bottom" secondItem="7hl-2U-sI1" secondAttribute="bottom" id="weG-xL-pOW"/>
             </constraints>
             <point key="canvasLocation" x="139" y="153"/>
         </view>
