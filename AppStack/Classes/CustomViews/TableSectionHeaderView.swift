@@ -37,6 +37,10 @@ class TableSectionHeaderView: UITableViewHeaderFooterView, XibInstantiableProtoc
     private func setupModel() {
         titleLabel.text = model?.title
         
+        if let font = model?.titleFont {
+            titleLabel.font = font
+        }
+        
         if let alignment = model?.titleTextAlignment {
             titleLabel.textAlignment = alignment
         }

@@ -119,7 +119,7 @@ extension Coordinator {
 
 open class AppCoordinator: Coordinator<UIWindow> {
 
-    weak var rootCoordinator: CoordinatorType?
+    public private(set) weak var rootCoordinator: CoordinatorType?
     
     public override var childCoordinators: [CoordinatorType] {
         return [rootCoordinator].compactMap { $0 }
@@ -131,7 +131,7 @@ open class AppCoordinator: Coordinator<UIWindow> {
         debugPrint("++++ APP COORDINATOR - \(self) - (\(address))")
         self.container = container
     }
-    
+        
     deinit {
         debugPrint("---- APP COORDINATOR - \(self) - (\(address))")
     }
@@ -200,6 +200,13 @@ open class NavigationCoordinator: Coordinator<UINavigationController> {
 /// present other coordinators
 
 extension NavigationCoordinator {
+
+    /// will present the navigation coordinator using the same navigation controller
+    public func prepare(otherNavigationCoordinator: NavigationCoordinator) {
+        super.start(coordinator: otherNavigationCoordinator)
+        
+        otherNavigationCoordinator.setup(navigationOption: .useNavigation(container))
+    }
     
     /// will present the navigation coordinator using the same navigation controller
     public func present(otherNavigationCoordinator: NavigationCoordinator) {
@@ -210,7 +217,7 @@ extension NavigationCoordinator {
     }
     
     /**
-     will present the navigation coordinator using the same navigation controller
+     will present the navigation coordinator using the same navigation controller, all view controllers which are in the stack after **startViewController**, will be popped
      */
     public func present<T: UIViewController>(otherNavigationCoordinator: NavigationCoordinator, startViewContollerType: T.Type) {
         super.start(coordinator: otherNavigationCoordinator)
