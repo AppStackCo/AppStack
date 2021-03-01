@@ -10,8 +10,8 @@ import UIKit
 public class BaseLabel: UILabel {
     
     public override var text: String? {
-        didSet{
-            attributedText = textStyle.attributedText(for: text ?? "", newColor: textColor)
+        didSet {
+            attributedText = textStyle.attributedText(for: text ?? "", newColor: textStyle.color)
         }
     }
     
