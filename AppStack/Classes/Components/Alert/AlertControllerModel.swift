@@ -40,11 +40,11 @@ public enum AlertControllerStyle: Int {
     }
 }
 
-public struct AlertActionModel {
-    let title: String
-    let style: AlertActionStyle
-    let shouldDismissOnTapAction: Bool
-    let tapAction: CocoaAction?
+open class AlertActionModel {
+    public let title: String
+    public let style: AlertActionStyle
+    public let shouldDismissOnTapAction: Bool
+    public let tapAction: CocoaAction?
     
     public init(title: String, style: AlertActionStyle, shouldDismissOnTapAction: Bool = true, tapAction: CocoaAction? = nil) {
         self.title = title
@@ -55,11 +55,11 @@ public struct AlertActionModel {
 }
 
 public struct AlertControllerModel {
-    let title: String?
-    let message: String?
-    let style: AlertControllerStyle
-    let actions: [AlertActionModel]
-    let isTapBackgroundToDismissEnabled: Bool
+    public let title: String?
+    public let message: String?
+    public let style: AlertControllerStyle
+    public let actions: [AlertActionModel]
+    public let isTapBackgroundToDismissEnabled: Bool
     
     public init(title: String? = nil, message: String? = nil, isTapBackgroundToDismissEnabled: Bool = true, style: AlertControllerStyle, actions: [AlertActionModel]) {
         self.title = title

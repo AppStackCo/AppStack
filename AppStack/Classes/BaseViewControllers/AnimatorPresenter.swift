@@ -9,11 +9,11 @@
 import UIKit
 import Jelly
 
-protocol AnimatorControllerProtocol where Self: UIViewController {
+public protocol AnimatorControllerProtocol where Self: UIViewController {
     var animator: Animator? { get set }
 }
 
-class AnimatorPresenter {
+public class AnimatorPresenter {
     private weak var controller: UIViewController!
     private var animator: Animator?
     
@@ -21,17 +21,17 @@ class AnimatorPresenter {
         CGSize(width: presenter.controller.view.bounds.width * 0.84, height: 400)
     }(self)
     
-    init(controller: UIViewController) {
+    public init(controller: UIViewController) {
         self.controller = controller
     }
     
-    func performCoverPresentation(animatorController: AnimatorControllerProtocol, height: CGFloat, dragInteraction: Bool = false,
+    public func performCoverPresentation(animatorController: AnimatorControllerProtocol, height: CGFloat, dragInteraction: Bool = false,
                                   isTapBackgroundToDismissEnabled: Bool = true) {
-        performCoverPresentation(animatorController: animatorController, size: CGSize(width: defaultSize.width, height: defaultSize.height),
+        performCoverPresentation(animatorController: animatorController, size: CGSize(width: defaultSize.width, height: height),
                                  isTapBackgroundToDismissEnabled: isTapBackgroundToDismissEnabled)
     }
     
-    func performCoverPresentation(animatorController: AnimatorControllerProtocol, size: CGSize, isTapBackgroundToDismissEnabled: Bool = true) {
+    public func performCoverPresentation(animatorController: AnimatorControllerProtocol, size: CGSize, isTapBackgroundToDismissEnabled: Bool = true) {
         let sideMargin = (UIScreen.main.bounds.width - size.width) / 2
         let marginGuards = UIEdgeInsets(top: 40, left: sideMargin, bottom: 40, right: sideMargin)
         
@@ -56,7 +56,7 @@ class AnimatorPresenter {
         controller.present(animatorController, animated: true)
     }
     
-    func performFadeInPresentation(animatorController: AnimatorControllerProtocol, isTapBackgroundToDismissEnabled: Bool = true,
+    public func performFadeInPresentation(animatorController: AnimatorControllerProtocol, isTapBackgroundToDismissEnabled: Bool = true,
                                    completionHandler: (() -> Void)? = nil) {
         let timing = PresentationTiming(duration: .reallyFast, presentationCurve: .easeInOut, dismissCurve: .easeInOut)
         let presentationConfiguration = PresentationUIConfiguration(cornerRadius: 0.0,

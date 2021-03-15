@@ -61,20 +61,20 @@ public let asBorderedButtonStyle =
     concat(
         asBaseButtonStyle,
         asRoundedStyle,
-        asBorderedStyle) {
+        asBorderedStyle, and:  {
             $0.tintColor = .black
-        }
+        })
 
 public let asFilledButtonStyle =
-    concat(asRoundedButtonStyle) {
+    concat(asRoundedButtonStyle, and:  {
         $0.backgroundColor = .black
         $0.tintColor = .white
-}
+    })
 
 public let asSimpleButtonStyle =
-    concat(asBaseButtonStyle) {
+    concat(asBaseButtonStyle, and:  {
         $0.tintColor = .darkGray
-}
+    })
 
 /// Labels
 

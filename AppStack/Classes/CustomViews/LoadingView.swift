@@ -9,14 +9,31 @@
 import UIKit
 import Lottie
 
-class LoadingView: UIView, XibInstantiableProtocol {
+public class LoadingView: UIView, XibInstantiableProtocol {
     @IBOutlet private weak var animationView: AnimationView!
     @IBOutlet private var contentView: UIView! {
         get { xibContentView }
         set { xibContentView = newValue }
     }
     
-    var xibContentView: UIView!
+    private let defaultAnimationName: String = "simple-loader"
+    
+    public var xibContentView: UIView!
+    
+    public var animation: Animation? {
+        get { animationView.animation }
+        set { animationView.animation = newValue }
+    }
+    
+    public var animationContentMode: UIView.ContentMode {
+        get { animationView.contentMode }
+        set { animationView.contentMode = newValue }
+    }
+    
+    public var animationLoopMode: LottieLoopMode {
+        get { animationView.loopMode }
+        set { animationView.loopMode = newValue }
+    }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -26,17 +43,16 @@ class LoadingView: UIView, XibInstantiableProtocol {
         super.init(frame: frame)
         instantiate()
         
-        let animation = Animation.named("simple-loader", bundle: Bundle(for: type(of: self)))
-        animationView.animation = animation
-        animationView.contentMode = .scaleAspectFill
-        animationView.loopMode = .loop
+        animation = Animation.named(defaultAnimationName, bundle: Bundle(for: type(of: self)))
+        animationContentMode = .scaleAspectFill
+        animationLoopMode = .loop
     }
     
-    func playAnimation() {
+    public func playAnimation() {
         animationView.play()
     }
     
-    func stopAnimation() {
+    public func stopAnimation() {
         animationView.stop()
     }
 }

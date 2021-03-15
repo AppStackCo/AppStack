@@ -32,7 +32,7 @@ extension UITableView {
         self.backgroundView = backgroundView
     }
     
-    func setupDefaultDataSource(cellIdentifiers: [String]) -> RxTableViewSectionedReloadDataSource<TableViewSectionModel> {
+    public func setupDefaultDataSource(cellIdentifiers: [String]) -> RxTableViewSectionedReloadDataSource<TableViewSectionModel> {
         let configureCell: RxTableViewSectionedReloadDataSource<TableViewSectionModel>.ConfigureCell = { (_, tableView, indexPath, cellModel) in
             let cell = tableView.dequeueReusableCell(withIdentifier: cellModel.identifier, for: indexPath)
             (cell as? BaseTableViewCell)?.update(using: cellModel)
@@ -47,7 +47,7 @@ extension UITableView {
                                canEditRowAtIndexPath: canEditRowAtIndexPath)
     }
     
-    func setupDataSource(cellIdentifiers: [String],
+    public func setupDataSource(cellIdentifiers: [String],
                          configureCell: @escaping RxTableViewSectionedReloadDataSource<TableViewSectionModel>.ConfigureCell,
                          canEditRowAtIndexPath: @escaping RxTableViewSectionedReloadDataSource<TableViewSectionModel>.CanEditRowAtIndexPath)
             -> RxTableViewSectionedReloadDataSource<TableViewSectionModel> {

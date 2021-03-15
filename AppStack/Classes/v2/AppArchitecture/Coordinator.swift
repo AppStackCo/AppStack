@@ -119,7 +119,7 @@ extension Coordinator {
 
 open class AppCoordinator: Coordinator<UIWindow> {
 
-    weak var rootCoordinator: CoordinatorType?
+    public private(set) weak var rootCoordinator: CoordinatorType?
     
     public override var childCoordinators: [CoordinatorType] {
         return [rootCoordinator].compactMap { $0 }
@@ -131,7 +131,7 @@ open class AppCoordinator: Coordinator<UIWindow> {
         debugPrint("++++ APP COORDINATOR - \(self) - (\(address))")
         self.container = container
     }
-    
+        
     deinit {
         debugPrint("---- APP COORDINATOR - \(self) - (\(address))")
     }
@@ -200,6 +200,13 @@ open class NavigationCoordinator: Coordinator<UINavigationController> {
 /// present other coordinators
 
 extension NavigationCoordinator {
+
+    /// will present the navigation coordinator using the same navigation controller
+    public func prepare(otherNavigationCoordinator: NavigationCoordinator) {
+        super.start(coordinator: otherNavigationCoordinator)
+        
+        otherNavigationCoordinator.setup(navigationOption: .useNavigation(container))
+    }
     
     /// will present the navigation coordinator using the same navigation controller
     public func present(otherNavigationCoordinator: NavigationCoordinator) {
@@ -209,12 +216,50 @@ extension NavigationCoordinator {
         container.pushViewController(otherNavigationCoordinator.rootViewController, animated: true)
     }
     
+    /**
+     will present the navigation coordinator using the same navigation controller, all view controllers which are in the stack after **startViewController**, will be popped
+     */
+    public func present<T: UIViewController>(otherNavigationCoordinator: NavigationCoordinator, startViewContollerType: T.Type) {
+        super.start(coordinator: otherNavigationCoordinator)
+        
+        otherNavigationCoordinator.setup(navigationOption: .useNavigation(container))
+        
+        var viewControllers = container.viewControllers
+        guard let startIndex = viewControllerIndex(of: startViewContollerType) else { fatalError() }
+        viewControllers.removeSubrange((startIndex + 1)...)
+        
+        viewControllers.append(otherNavigationCoordinator.rootViewController)
+                
+        container.setViewControllers(viewControllers, animated: true)
+    }
+    
     /// will present modally the navigation coordinator. Presenter will be the current navigation controller
     public func presentModal(otherNavigationCoordinator: NavigationCoordinator) {
         super.start(coordinator: otherNavigationCoordinator)
 
         otherNavigationCoordinator.setup(navigationOption: .newNavigation)
         container.present(otherNavigationCoordinator.container, animated: true, completion: nil)
+    }
+}
+
+extension NavigationCoordinator {
+    
+    public func popTo<T: UIViewController>(type: T.Type) {
+        
+        guard let viewController = viewController(of: type) else {
+            print("🛑 ERROR: UIViewController(\(type)) not in navigation stack")
+            return
+        }
+        
+        container.popToViewController(viewController, animated: true)
+    }
+    
+    private func viewController<T: UIViewController>(of type: T.Type) -> T? {
+        return container.viewControllers.first(where: { $0.isKind(of: type) }) as? T
+    }
+    
+    private func viewControllerIndex<T: UIViewController>(of type: T.Type) -> Int? {
+        return container.viewControllers.firstIndex(where: { $0.isKind(of: type) })
     }
 }
 
@@ -276,4 +321,18 @@ open class TabbarCoordinator: Coordinator<UITabBarController> {
 //        return coordinator.container
 //    }
     
+}
+
+/// ContainerCoordinator
+
+open class ContainerCoordinator: Coordinator<UIViewController> {
+    
+    public override init() {
+        super.init()
+        debugPrint("++++ CONTAINER COORDINATOR - \(self) - (\(address))")
+    }
+
+    deinit {
+        debugPrint("---- CONTAINER COORDINATOR - \(self) - (\(address))")
+    }
 }

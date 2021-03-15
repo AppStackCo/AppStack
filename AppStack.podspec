@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'AppStack'
-  s.version          = '0.3.1'
-  s.summary          = 'A short description of AppStack.'
+  s.version          = '0.4.0'
+  s.summary          = 'Smart framework used to speed up building of iOS applications'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,17 +18,18 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
-                       DESC
+  AppStack contains coordinators, styling, etc. It is built with RxSwift.
+  DESC
 
-  s.homepage         = 'https://github.com/gutoim/AppStack'
+  s.homepage         = 'https://github.com/AppStackCo/AppStack'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'gutoim' => 'marius.gutoi@gmail.com' }
-  s.source           = { :git => 'https://github.com/gutoim/AppStack.git', :tag => s.version.to_s }
+  s.author           = { 'Marius Gutoi' => 'marius.gutoi@gmail.com' }
+  s.source           = { :git => 'https://github.com/AppStackCo/AppStack.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '12.0'
+  s.swift_version = '5.0'
 
   s.source_files = 'AppStack/Classes/**/*.swift'
   
@@ -38,7 +39,6 @@ TODO: Add long description of the pod here.
   s.resources = ['AppStack/Classes/**/*.{json,xib,storyboard,xcassets}']
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
   s.dependency 'Overture'
   s.dependency 'Action'
   s.dependency 'Jelly'
