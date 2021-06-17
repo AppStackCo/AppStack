@@ -325,8 +325,8 @@ open class TabbarCoordinator: Coordinator<UITabBarController> {
 
 /// ContainerCoordinator
 
-open class ContainerCoordinator: Coordinator<UIViewController> {
-    
+open class ContainerCoordinator<T: UIViewController>: Coordinator<T> {
+        
     public override init() {
         super.init()
         debugPrint("++++ CONTAINER COORDINATOR - \(self) - (\(address))")

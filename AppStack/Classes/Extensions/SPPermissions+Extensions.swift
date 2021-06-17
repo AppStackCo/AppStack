@@ -8,7 +8,7 @@
 
 import SPPermissions
 
-extension SPPermission {
+extension SPPermissions.Permission {
     
     public enum PermissionState {
         case authorized
@@ -17,6 +17,6 @@ extension SPPermission {
     }
     
     public func state() -> PermissionState {
-        isDenied ? .denied : isAuthorized ? .authorized : .notAuthorized
+        denied ? .denied : authorized ? .authorized : .notAuthorized
     }
 }
