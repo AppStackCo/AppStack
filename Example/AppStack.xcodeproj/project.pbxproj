@@ -10,6 +10,20 @@
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		614DD10C753725DC3D38F7AB /* Pods_AppStack_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 889F54EE63E5A2255ECCB577 /* Pods_AppStack_Demo.framework */; };
 		9FE56AD3357168B0E3799EFC /* Pods_AppStack_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 315094B9FAB8B763B9749584 /* Pods_AppStack_Tests.framework */; };
+		FA7B64D026A6276D00FC230D /* DemoAppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7B64CF26A6276D00FC230D /* DemoAppCoordinator.swift */; };
+		FA7B64DC26A629DD00FC230D /* SplashCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7B64DB26A629DD00FC230D /* SplashCoordinator.swift */; };
+		FA7B64DE26A62A1300FC230D /* UIStoryboard+Demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7B64DD26A62A1300FC230D /* UIStoryboard+Demo.swift */; };
+		FA7B64EA26A9982600FC230D /* SplashBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7B64E626A9982600FC230D /* SplashBuilder.swift */; };
+		FA7B64EB26A9982600FC230D /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7B64E726A9982600FC230D /* SplashViewController.swift */; };
+		FA7B64EC26A9982600FC230D /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7B64E826A9982600FC230D /* SplashViewModel.swift */; };
+		FA7B64ED26A9982600FC230D /* SplashRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7B64E926A9982600FC230D /* SplashRoute.swift */; };
+		FA7B64F426A9987A00FC230D /* LoginRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7B64F026A9987A00FC230D /* LoginRoute.swift */; };
+		FA7B64F526A9987A00FC230D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7B64F126A9987A00FC230D /* LoginViewController.swift */; };
+		FA7B64F626A9987A00FC230D /* LoginBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7B64F226A9987A00FC230D /* LoginBuilder.swift */; };
+		FA7B64F726A9987A00FC230D /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7B64F326A9987A00FC230D /* LoginViewModel.swift */; };
+		FA7B64F926A9988C00FC230D /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7B64F826A9988C00FC230D /* LoginCoordinator.swift */; };
+		FA7B64FB26A998BB00FC230D /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA7B64FA26A998BB00FC230D /* Login.storyboard */; };
+		FA7B64FE26A9995200FC230D /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7B64FD26A9995200FC230D /* Repository.swift */; };
 		FAF584E426A1ED90006725DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF584E326A1ED90006725DC /* AppDelegate.swift */; };
 		FAF584E626A1ED90006725DC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF584E526A1ED90006725DC /* SceneDelegate.swift */; };
 		FAF584E826A1ED90006725DC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF584E726A1ED90006725DC /* ViewController.swift */; };
@@ -31,6 +45,20 @@
 		98735F4617AF64A3DDABBD4C /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		A3BFA077910C7EE635055EF8 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		F9C4161B3732F67029B94D17 /* Pods-AppStack-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppStack-Demo.release.xcconfig"; path = "Target Support Files/Pods-AppStack-Demo/Pods-AppStack-Demo.release.xcconfig"; sourceTree = "<group>"; };
+		FA7B64CF26A6276D00FC230D /* DemoAppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoAppCoordinator.swift; sourceTree = "<group>"; };
+		FA7B64DB26A629DD00FC230D /* SplashCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashCoordinator.swift; sourceTree = "<group>"; };
+		FA7B64DD26A62A1300FC230D /* UIStoryboard+Demo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Demo.swift"; sourceTree = "<group>"; };
+		FA7B64E626A9982600FC230D /* SplashBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashBuilder.swift; sourceTree = "<group>"; };
+		FA7B64E726A9982600FC230D /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		FA7B64E826A9982600FC230D /* SplashViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
+		FA7B64E926A9982600FC230D /* SplashRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashRoute.swift; sourceTree = "<group>"; };
+		FA7B64F026A9987A00FC230D /* LoginRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRoute.swift; sourceTree = "<group>"; };
+		FA7B64F126A9987A00FC230D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		FA7B64F226A9987A00FC230D /* LoginBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginBuilder.swift; sourceTree = "<group>"; };
+		FA7B64F326A9987A00FC230D /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		FA7B64F826A9988C00FC230D /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
+		FA7B64FA26A998BB00FC230D /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		FA7B64FD26A9995200FC230D /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		FAF584E126A1ED8F006725DC /* AppStack-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AppStack-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAF584E326A1ED90006725DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAF584E526A1ED90006725DC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -129,9 +157,71 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		FA7B64D126A6293200FC230D /* Flows */ = {
+			isa = PBXGroup;
+			children = (
+				FA7B64DD26A62A1300FC230D /* UIStoryboard+Demo.swift */,
+				FA7B64D226A6293200FC230D /* Splash */,
+				FA7B64EE26A9985000FC230D /* Login */,
+			);
+			path = Flows;
+			sourceTree = "<group>";
+		};
+		FA7B64D226A6293200FC230D /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				FA7B64DB26A629DD00FC230D /* SplashCoordinator.swift */,
+				FA7B64E526A9982600FC230D /* Splash */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		FA7B64E526A9982600FC230D /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				FA7B64E626A9982600FC230D /* SplashBuilder.swift */,
+				FA7B64E726A9982600FC230D /* SplashViewController.swift */,
+				FA7B64E826A9982600FC230D /* SplashViewModel.swift */,
+				FA7B64E926A9982600FC230D /* SplashRoute.swift */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		FA7B64EE26A9985000FC230D /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				FA7B64FA26A998BB00FC230D /* Login.storyboard */,
+				FA7B64F826A9988C00FC230D /* LoginCoordinator.swift */,
+				FA7B64EF26A9985000FC230D /* Login */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		FA7B64EF26A9985000FC230D /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				FA7B64F026A9987A00FC230D /* LoginRoute.swift */,
+				FA7B64F126A9987A00FC230D /* LoginViewController.swift */,
+				FA7B64F226A9987A00FC230D /* LoginBuilder.swift */,
+				FA7B64F326A9987A00FC230D /* LoginViewModel.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		FA7B64FC26A9993D00FC230D /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				FA7B64FD26A9995200FC230D /* Repository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
 		FAF584E226A1ED90006725DC /* AppStack-Demo */ = {
 			isa = PBXGroup;
 			children = (
+				FA7B64D126A6293200FC230D /* Flows */,
+				FA7B64FC26A9993D00FC230D /* Repository */,
+				FA7B64CF26A6276D00FC230D /* DemoAppCoordinator.swift */,
 				FAF584E326A1ED90006725DC /* AppDelegate.swift */,
 				FAF584E526A1ED90006725DC /* SceneDelegate.swift */,
 				FAF584E726A1ED90006725DC /* ViewController.swift */,
@@ -191,7 +281,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1250;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 1250;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {
 					607FACE41AFB9204008FA782 = {
@@ -238,6 +328,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA7B64FB26A998BB00FC230D /* Login.storyboard in Resources */,
 				FAF584F026A1ED93006725DC /* LaunchScreen.storyboard in Resources */,
 				FAF584ED26A1ED93006725DC /* Assets.xcassets in Resources */,
 				FAF584EB26A1ED90006725DC /* Main.storyboard in Resources */,
@@ -394,9 +485,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA7B64F526A9987A00FC230D /* LoginViewController.swift in Sources */,
 				FAF584E826A1ED90006725DC /* ViewController.swift in Sources */,
+				FA7B64D026A6276D00FC230D /* DemoAppCoordinator.swift in Sources */,
+				FA7B64ED26A9982600FC230D /* SplashRoute.swift in Sources */,
+				FA7B64DC26A629DD00FC230D /* SplashCoordinator.swift in Sources */,
+				FA7B64F626A9987A00FC230D /* LoginBuilder.swift in Sources */,
+				FA7B64F726A9987A00FC230D /* LoginViewModel.swift in Sources */,
+				FA7B64EC26A9982600FC230D /* SplashViewModel.swift in Sources */,
 				FAF584E426A1ED90006725DC /* AppDelegate.swift in Sources */,
+				FA7B64DE26A62A1300FC230D /* UIStoryboard+Demo.swift in Sources */,
+				FA7B64EA26A9982600FC230D /* SplashBuilder.swift in Sources */,
+				FA7B64FE26A9995200FC230D /* Repository.swift in Sources */,
 				FAF584E626A1ED90006725DC /* SceneDelegate.swift in Sources */,
+				FA7B64F926A9988C00FC230D /* LoginCoordinator.swift in Sources */,
+				FA7B64EB26A9982600FC230D /* SplashViewController.swift in Sources */,
+				FA7B64F426A9987A00FC230D /* LoginRoute.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,6 +530,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -434,14 +539,17 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -479,6 +587,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -487,14 +596,17 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
