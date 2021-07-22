@@ -34,7 +34,7 @@ final class Repository {
         // start
         Observable<DemoAppState>
             .just(.loggedOut)
-            .delay(.seconds(3), scheduler: MainScheduler.instance)
+            .delay(.seconds(2), scheduler: MainScheduler.instance)
             .subscribe(onNext: { [weak self] appState in
                 self?.appStateRelay.accept(appState)
             })
@@ -49,7 +49,7 @@ extension Repository {
         
         Completable
             .empty()
-            .delay(.seconds(4), scheduler: MainScheduler.instance)
+            .delay(.seconds(2), scheduler: MainScheduler.instance)
             .do(onCompleted: { [weak self] in
                 self?.appStateRelay.accept(.loggedIn)
             })

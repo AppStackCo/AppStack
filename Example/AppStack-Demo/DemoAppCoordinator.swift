@@ -37,7 +37,8 @@ class DemoAppCoordinator: AppCoordinator {
                         self?.present(coordinator: loginCoordinator)
                         
                     case .loggedIn:
-                        break
+                        let mainCoordinator = MainCoordinator()
+                        self?.present(coordinator: mainCoordinator)
                     }
                     
                 }
