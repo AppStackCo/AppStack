@@ -6,6 +6,7 @@
 //  Copyright (c) 2021 CocoaPods. All rights reserved.
 //
 
+import Action
 import AppStack
 
 final class LoginViewModel: ViewModel {
@@ -15,6 +16,14 @@ final class LoginViewModel: ViewModel {
 
     // additional properties go here
 
+    var loginAction: CocoaAction {
+        CocoaAction {
+            Repository.shared.login()
+                .asObservable()
+                .map { _ in () }
+        }
+    }
+    
     init(route: LoginRoute, data: LoginData?) {
 
         self.route = route

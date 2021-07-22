@@ -6,6 +6,7 @@
 //  Copyright (c) 2021 CocoaPods. All rights reserved.
 //
 
+import Action
 import AppStack
 import RxCocoa
 import RxSwift
@@ -17,10 +18,14 @@ final class LoginViewController: UIViewController, ViewControllable {
     
     private let disposeBag = DisposeBag()
     
+    @IBOutlet weak var loginButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = "Login"
+        
+        loginButton.rx.action = viewModel.loginAction
     }
 }
 

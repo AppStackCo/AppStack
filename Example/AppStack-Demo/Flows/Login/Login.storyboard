@@ -16,9 +16,22 @@
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EeX-e5-5RA">
+                                <rect key="frame" x="188" y="438" width="38" height="30"/>
+                                <state key="normal" title="Login"/>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="EeX-e5-5RA" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="Vth-Wi-wUu"/>
+                            <constraint firstItem="EeX-e5-5RA" firstAttribute="centerY" secondItem="vDu-zF-Fre" secondAttribute="centerY" id="vSB-JK-IMR"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="loginButton" destination="EeX-e5-5RA" id="e0g-s1-C4I"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
