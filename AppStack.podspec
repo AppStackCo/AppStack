@@ -48,6 +48,4 @@ Pod::Spec.new do |s|
   s.dependency 'RxSwift'
   s.dependency 'RxDataSources'
   s.dependency 'RxBiBinding'
-  s.dependency 'SPPermissions/Notification'
-  s.dependency 'SPPermissions/Contacts'
 end
