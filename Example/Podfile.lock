@@ -1,27 +1,88 @@
 PODS:
-  - AppStack (0.1.0)
-  - Nimble (7.3.4)
-  - Quick (1.2.0)
+  - Action (4.3.0):
+    - RxCocoa (~> 6.0)
+    - RxSwift (~> 6.0)
+  - AppStack (0.5.0):
+    - Action
+    - Jelly
+    - lottie-ios
+    - Overture
+    - RxBiBinding
+    - RxCocoa
+    - RxDataSources
+    - RxSwift
+    - SkyFloatingLabelTextField
+    - SPPermissions/Contacts
+    - SPPermissions/Notification
+  - Differentiator (5.0.0)
+  - Jelly (2.2.2)
+  - lottie-ios (3.2.3)
+  - Nimble (9.2.0)
+  - Overture (0.5.0)
+  - Quick (4.0.0)
+  - RxBiBinding (0.3.5):
+    - RxCocoa (~> 6.0)
+    - RxSwift (~> 6.0)
+  - RxCocoa (6.2.0):
+    - RxRelay (= 6.2.0)
+    - RxSwift (= 6.2.0)
+  - RxDataSources (5.0.0):
+    - Differentiator (~> 5.0)
+    - RxCocoa (~> 6.0)
+    - RxSwift (~> 6.0)
+  - RxRelay (6.2.0):
+    - RxSwift (= 6.2.0)
+  - RxSwift (6.2.0)
+  - SkyFloatingLabelTextField (4.0.0)
+  - SPPermissions/Contacts (6.5.6):
+    - SPPermissions/Core
+  - SPPermissions/Core (6.5.6)
+  - SPPermissions/Notification (6.5.6):
+    - SPPermissions/Core
 
 DEPENDENCIES:
   - AppStack (from `../`)
-  - Nimble (~> 7.0)
-  - Quick (~> 1.2.0)
+  - Nimble
+  - Quick
 
 SPEC REPOS:
   trunk:
+    - Action
+    - Differentiator
+    - Jelly
+    - lottie-ios
     - Nimble
+    - Overture
     - Quick
+    - RxBiBinding
+    - RxCocoa
+    - RxDataSources
+    - RxRelay
+    - RxSwift
+    - SkyFloatingLabelTextField
+    - SPPermissions
 
 EXTERNAL SOURCES:
   AppStack:
     :path: "../"
 
 SPEC CHECKSUMS:
-  AppStack: 70cc5723cdc42b866278480811aaaefa77fc4779
-  Nimble: 051e3d8912d40138fa5591c78594f95fb172af37
-  Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
+  Action: 9891cd1b0a9047557d7e58e8dfae743e19d08197
+  AppStack: 41bfe593969328667ee212cf2c5c70b2638c3d25
+  Differentiator: e8497ceab83c1b10ca233716d547b9af21b9344d
+  Jelly: 0576a8fd3b3bea78f6c2d952acdc30b0835dda71
+  lottie-ios: c058aeafa76daa4cf64d773554bccc8385d0150e
+  Nimble: 4f4a345c80b503b3ea13606a4f98405974ee4d0b
+  Overture: 2e6252ead5da6d3347f758047f27a31cb469d59d
+  Quick: 6473349e43b9271a8d43839d9ba1c442ed1b7ac4
+  RxBiBinding: c4de0aad6ee668fa73ea6ba423bc0ab5d77b986b
+  RxCocoa: 4baf94bb35f2c0ab31bc0cb9f1900155f646ba42
+  RxDataSources: aa47cc1ed6c500fa0dfecac5c979b723542d79cf
+  RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f
+  RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
+  SkyFloatingLabelTextField: 79ddc40e4ad59707fedbb48d605417aee48bb78a
+  SPPermissions: 6edb1c5913678a122dda5784d9d40435e9ff36fa
 
-PODFILE CHECKSUM: d972258aad446f9a49e20b8db60d095b7f28491c
+PODFILE CHECKSUM: cc63d83ac6913878a1742b440a51648a14f637d7
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.10.1

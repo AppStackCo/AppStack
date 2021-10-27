@@ -8,7 +8,7 @@
 
 import UIKit
 
-public protocol StoryboardBased: class {
+public protocol StoryboardBased: AnyObject {
     
     static var storyboardIdentifier: String { get }
     static var owningStoryboard: UIStoryboard { get }

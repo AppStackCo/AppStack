@@ -8,7 +8,7 @@
 
 import UIKit
 
-public protocol BaseConnector: class {
+public protocol BaseConnector: AnyObject {
     associatedtype ViewModel: ViewModelProtocol
     associatedtype ViewController: BindableViewController & UIViewController
     associatedtype Navigator
