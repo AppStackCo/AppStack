@@ -54,7 +54,7 @@ final class CharacterListViewModel: ViewModel {
     
     func getNextPageIfAny() {
         
-        guard characterListInteractor.hasMorePages else { return }
+//        guard characterListInteractor.hasMorePages else { return }
         
         // start animation
         

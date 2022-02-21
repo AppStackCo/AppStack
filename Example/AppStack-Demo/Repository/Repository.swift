@@ -62,12 +62,8 @@ extension Repository {
 }
 
 extension Repository {
-    
-    func getCharacters() -> Single<[CharacterEntity]> {
-        networkLayer.getCharacters()
-    }
-    
-    func getCharacters(page: Int?) -> Single<[CharacterEntity]> {
+        
+    func getCharacters(page: Int?) -> Single<([CharacterEntity], Bool)> {
         networkLayer.getCharacters(page: page)
     }
 }

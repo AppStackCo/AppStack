@@ -9,7 +9,7 @@
 import Moya
 
 enum RickMortyApi {
-    case characters
+    case characters(Int?)
 }
 
 extension RickMortyApi: TargetType {
@@ -36,8 +36,12 @@ extension RickMortyApi: TargetType {
     
     var task: Task {
         switch self {
-        case .characters:
-            return .requestPlain
+        case .characters(let page):
+            var parameters: [String: Any] = [:]
+            if let page = page {
+                parameters["page"] = page
+            }
+            return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
         }
     }
         

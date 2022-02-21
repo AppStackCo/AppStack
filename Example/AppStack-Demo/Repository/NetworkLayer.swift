@@ -24,24 +24,24 @@ final class NetworkLayer {
         return provider
     }()
     
-    func getCharacters() -> Single<[CharacterEntity]> {
-        
-        return provider.rx
-            .request(.characters)
-            .map(CharacterList.self)
-            .map { $0.results }
-            .catch { [weak self] error in
-                self?.handleError(error)
-                return .error(error)
-            }
-    }
+//    func getCharacters() -> Single<[CharacterEntity]> {
+//
+//        return provider.rx
+//            .request(.characters)
+//            .map(CharacterList.self)
+//            .map { $0.results }
+//            .catch { [weak self] error in
+//                self?.handleError(error)
+//                return .error(error)
+//            }
+//    }
     
-    func getCharacters(page: Int?) -> Single<[CharacterEntity]> {
+    func getCharacters(page: Int?) -> Single<([CharacterEntity], Bool)> {
         
         return provider.rx
-            .request(.characters)
+            .request(.characters(page))
             .map(CharacterList.self)
-            .map { $0.results }
+            .map { ($0.results, $0.info.nextPageUrl != nil) }
             .catch { [weak self] error in
                 self?.handleError(error)
                 return .error(error)
