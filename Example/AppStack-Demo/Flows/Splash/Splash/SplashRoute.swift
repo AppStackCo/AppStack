@@ -3,7 +3,7 @@
 //  AppStack
 //
 //  Created by Marius Gutoi on 19.07.2021.
-//  Copyright (c) 2021 CocoaPods. All rights reserved.
+//  Copyright (c) 2021 AppStack. All rights reserved.
 //
 
 import AppStack

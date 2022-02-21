@@ -279,6 +279,8 @@
 				FA8E5F9C27C3C45600B2629A /* Characters.storyboard */,
 				FA8E5F9127C3C40100B2629A /* CharactersCoordinator.swift */,
 				FA8E5F9327C3C43B00B2629A /* CharacterList */,
+				FA8E5FA227C3D9A000B2629A /* Filtering */,
+				FA8E5FA327C3D9A000B2629A /* Sorting */,
 			);
 			path = Characters;
 			sourceTree = "<group>";
@@ -294,6 +296,20 @@
 				FA8E5FA027C3D71800B2629A /* CharacterCell.swift */,
 			);
 			path = CharacterList;
+			sourceTree = "<group>";
+		};
+		FA8E5FA227C3D9A000B2629A /* Filtering */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Filtering;
+			sourceTree = "<group>";
+		};
+		FA8E5FA327C3D9A000B2629A /* Sorting */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Sorting;
 			sourceTree = "<group>";
 		};
 		FAF584E226A1ED90006725DC /* AppStack-Demo */ = {
@@ -359,7 +375,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1250;
-				ORGANIZATIONNAME = CocoaPods;
+				ORGANIZATIONNAME = AppStack;
 				TargetAttributes = {
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
