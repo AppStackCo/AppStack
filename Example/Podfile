@@ -1,7 +1,13 @@
 use_frameworks!
 
 target 'AppStack-Demo' do
+  
   pod 'AppStack', :path => '../'
+  
+  pod 'Moya/RxSwift'
+  
+  pod 'SDWebImage'
+  
 end
 
 target 'AppStack_Tests' do

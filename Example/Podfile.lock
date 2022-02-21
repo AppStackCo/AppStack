@@ -2,6 +2,7 @@ PODS:
   - Action (4.3.0):
     - RxCocoa (~> 6.0)
     - RxSwift (~> 6.0)
+  - Alamofire (5.4.4)
   - AppStack (0.5.0):
     - Action
     - Jelly
@@ -12,11 +13,14 @@ PODS:
     - RxDataSources
     - RxSwift
     - SkyFloatingLabelTextField
-    - SPPermissions/Contacts
-    - SPPermissions/Notification
   - Differentiator (5.0.0)
   - Jelly (2.2.2)
   - lottie-ios (3.2.3)
+  - Moya/Core (15.0.0):
+    - Alamofire (~> 5.0)
+  - Moya/RxSwift (15.0.0):
+    - Moya/Core
+    - RxSwift (~> 6.0)
   - Nimble (9.2.0)
   - Overture (0.5.0)
   - Quick (4.0.0)
@@ -33,24 +37,26 @@ PODS:
   - RxRelay (6.2.0):
     - RxSwift (= 6.2.0)
   - RxSwift (6.2.0)
+  - SDWebImage (5.12.1):
+    - SDWebImage/Core (= 5.12.1)
+  - SDWebImage/Core (5.12.1)
   - SkyFloatingLabelTextField (4.0.0)
-  - SPPermissions/Contacts (6.5.6):
-    - SPPermissions/Core
-  - SPPermissions/Core (6.5.6)
-  - SPPermissions/Notification (6.5.6):
-    - SPPermissions/Core
 
 DEPENDENCIES:
   - AppStack (from `../`)
+  - Moya/RxSwift
   - Nimble
   - Quick
+  - SDWebImage
 
 SPEC REPOS:
   trunk:
     - Action
+    - Alamofire
     - Differentiator
     - Jelly
     - lottie-ios
+    - Moya
     - Nimble
     - Overture
     - Quick
@@ -59,8 +65,8 @@ SPEC REPOS:
     - RxDataSources
     - RxRelay
     - RxSwift
+    - SDWebImage
     - SkyFloatingLabelTextField
-    - SPPermissions
 
 EXTERNAL SOURCES:
   AppStack:
@@ -68,10 +74,12 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Action: 9891cd1b0a9047557d7e58e8dfae743e19d08197
-  AppStack: 41bfe593969328667ee212cf2c5c70b2638c3d25
+  Alamofire: f3b09a368f1582ab751b3fff5460276e0d2cf5c9
+  AppStack: 85c783c7e3200260cf04d67090398ea3d858c993
   Differentiator: e8497ceab83c1b10ca233716d547b9af21b9344d
   Jelly: 0576a8fd3b3bea78f6c2d952acdc30b0835dda71
   lottie-ios: c058aeafa76daa4cf64d773554bccc8385d0150e
+  Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
   Nimble: 4f4a345c80b503b3ea13606a4f98405974ee4d0b
   Overture: 2e6252ead5da6d3347f758047f27a31cb469d59d
   Quick: 6473349e43b9271a8d43839d9ba1c442ed1b7ac4
@@ -80,9 +88,9 @@ SPEC CHECKSUMS:
   RxDataSources: aa47cc1ed6c500fa0dfecac5c979b723542d79cf
   RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f
   RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
+  SDWebImage: 4dc3e42d9ec0c1028b960a33ac6b637bb432207b
   SkyFloatingLabelTextField: 79ddc40e4ad59707fedbb48d605417aee48bb78a
-  SPPermissions: 6edb1c5913678a122dda5784d9d40435e9ff36fa
 
-PODFILE CHECKSUM: cc63d83ac6913878a1742b440a51648a14f637d7
+PODFILE CHECKSUM: 51cc6dc4994e500745f03711c30c1cd704f1c8d9
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.11.2

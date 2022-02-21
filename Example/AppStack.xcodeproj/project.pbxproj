@@ -30,6 +30,17 @@
 		FA7B651326A9D9FE00FC230D /* SettingsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7B650F26A9D9FE00FC230D /* SettingsBuilder.swift */; };
 		FA7B651426A9D9FE00FC230D /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7B651026A9D9FE00FC230D /* SettingsViewModel.swift */; };
 		FA8E5F8127C39FA100B2629A /* DemoAppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8E5F8027C39FA100B2629A /* DemoAppCoordinator.swift */; };
+		FA8E5F8327C3BD4B00B2629A /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8E5F8227C3BD4B00B2629A /* NetworkLayer.swift */; };
+		FA8E5F8527C3BD5F00B2629A /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8E5F8427C3BD5F00B2629A /* ApiClient.swift */; };
+		FA8E5F8727C3C30100B2629A /* Characters.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8E5F8627C3C30100B2629A /* Characters.swift */; };
+		FA8E5F9227C3C40100B2629A /* CharactersCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8E5F9127C3C40100B2629A /* CharactersCoordinator.swift */; };
+		FA8E5F9827C3C43C00B2629A /* CharacterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8E5F9427C3C43B00B2629A /* CharacterListViewController.swift */; };
+		FA8E5F9927C3C43C00B2629A /* CharacterListBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8E5F9527C3C43B00B2629A /* CharacterListBuilder.swift */; };
+		FA8E5F9A27C3C43C00B2629A /* CharacterListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8E5F9627C3C43B00B2629A /* CharacterListViewModel.swift */; };
+		FA8E5F9B27C3C43C00B2629A /* CharacterListRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8E5F9727C3C43B00B2629A /* CharacterListRoute.swift */; };
+		FA8E5F9D27C3C45600B2629A /* Characters.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA8E5F9C27C3C45600B2629A /* Characters.storyboard */; };
+		FA8E5F9F27C3CA8800B2629A /* CharacterListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8E5F9E27C3CA8800B2629A /* CharacterListInteractor.swift */; };
+		FA8E5FA127C3D71800B2629A /* CharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8E5FA027C3D71800B2629A /* CharacterCell.swift */; };
 		FAF584E426A1ED90006725DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF584E326A1ED90006725DC /* AppDelegate.swift */; };
 		FAF584E626A1ED90006725DC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF584E526A1ED90006725DC /* SceneDelegate.swift */; };
 		FAF584ED26A1ED93006725DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAF584EC26A1ED93006725DC /* Assets.xcassets */; };
@@ -69,6 +80,17 @@
 		FA7B650F26A9D9FE00FC230D /* SettingsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBuilder.swift; sourceTree = "<group>"; };
 		FA7B651026A9D9FE00FC230D /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		FA8E5F8027C39FA100B2629A /* DemoAppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoAppCoordinator.swift; sourceTree = "<group>"; };
+		FA8E5F8227C3BD4B00B2629A /* NetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLayer.swift; sourceTree = "<group>"; };
+		FA8E5F8427C3BD5F00B2629A /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		FA8E5F8627C3C30100B2629A /* Characters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Characters.swift; sourceTree = "<group>"; };
+		FA8E5F9127C3C40100B2629A /* CharactersCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersCoordinator.swift; sourceTree = "<group>"; };
+		FA8E5F9427C3C43B00B2629A /* CharacterListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterListViewController.swift; sourceTree = "<group>"; };
+		FA8E5F9527C3C43B00B2629A /* CharacterListBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterListBuilder.swift; sourceTree = "<group>"; };
+		FA8E5F9627C3C43B00B2629A /* CharacterListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterListViewModel.swift; sourceTree = "<group>"; };
+		FA8E5F9727C3C43B00B2629A /* CharacterListRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterListRoute.swift; sourceTree = "<group>"; };
+		FA8E5F9C27C3C45600B2629A /* Characters.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Characters.storyboard; sourceTree = "<group>"; };
+		FA8E5F9E27C3CA8800B2629A /* CharacterListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListInteractor.swift; sourceTree = "<group>"; };
+		FA8E5FA027C3D71800B2629A /* CharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCell.swift; sourceTree = "<group>"; };
 		FAF584E126A1ED8F006725DC /* AppStack-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AppStack-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAF584E326A1ED90006725DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAF584E526A1ED90006725DC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -173,6 +195,7 @@
 				FA7B64D226A6293200FC230D /* Splash */,
 				FA7B64EE26A9985000FC230D /* Login */,
 				FA7B650726A9D61300FC230D /* Main */,
+				FA8E5F8827C3C3BC00B2629A /* Characters */,
 			);
 			path = Flows;
 			sourceTree = "<group>";
@@ -222,6 +245,9 @@
 			isa = PBXGroup;
 			children = (
 				FA7B64FD26A9995200FC230D /* Repository.swift */,
+				FA8E5F8227C3BD4B00B2629A /* NetworkLayer.swift */,
+				FA8E5F8427C3BD5F00B2629A /* ApiClient.swift */,
+				FA8E5F8627C3C30100B2629A /* Characters.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -239,12 +265,35 @@
 		FA7B650A26A9D96A00FC230D /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				FA7B650D26A9D9FE00FC230D /* SettingsRoute.swift */,
 				FA7B650E26A9D9FE00FC230D /* SettingsViewController.swift */,
-				FA7B650F26A9D9FE00FC230D /* SettingsBuilder.swift */,
 				FA7B651026A9D9FE00FC230D /* SettingsViewModel.swift */,
+				FA7B650D26A9D9FE00FC230D /* SettingsRoute.swift */,
+				FA7B650F26A9D9FE00FC230D /* SettingsBuilder.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		FA8E5F8827C3C3BC00B2629A /* Characters */ = {
+			isa = PBXGroup;
+			children = (
+				FA8E5F9C27C3C45600B2629A /* Characters.storyboard */,
+				FA8E5F9127C3C40100B2629A /* CharactersCoordinator.swift */,
+				FA8E5F9327C3C43B00B2629A /* CharacterList */,
+			);
+			path = Characters;
+			sourceTree = "<group>";
+		};
+		FA8E5F9327C3C43B00B2629A /* CharacterList */ = {
+			isa = PBXGroup;
+			children = (
+				FA8E5F9427C3C43B00B2629A /* CharacterListViewController.swift */,
+				FA8E5F9627C3C43B00B2629A /* CharacterListViewModel.swift */,
+				FA8E5F9727C3C43B00B2629A /* CharacterListRoute.swift */,
+				FA8E5F9527C3C43B00B2629A /* CharacterListBuilder.swift */,
+				FA8E5F9E27C3CA8800B2629A /* CharacterListInteractor.swift */,
+				FA8E5FA027C3D71800B2629A /* CharacterCell.swift */,
+			);
+			path = CharacterList;
 			sourceTree = "<group>";
 		};
 		FAF584E226A1ED90006725DC /* AppStack-Demo */ = {
@@ -358,6 +407,7 @@
 				FA7B64FB26A998BB00FC230D /* Login.storyboard in Resources */,
 				FAF584F026A1ED93006725DC /* LaunchScreen.storyboard in Resources */,
 				FAF584ED26A1ED93006725DC /* Assets.xcassets in Resources */,
+				FA8E5F9D27C3C45600B2629A /* Characters.storyboard in Resources */,
 				FA7B650C26A9D9CD00FC230D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -395,32 +445,36 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-AppStack-Demo/Pods-AppStack-Demo-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Action/Action.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AppStack/AppStack.framework",
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
 				"${BUILT_PRODUCTS_DIR}/Jelly/Jelly.framework",
+				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/Overture/Overture.framework",
 				"${BUILT_PRODUCTS_DIR}/RxBiBinding/RxBiBinding.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
 				"${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/SPPermissions/SPPermissions.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Action.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AppStack.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Jelly.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Overture.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxBiBinding.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRelay.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SPPermissions.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkyFloatingLabelTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 			);
@@ -446,7 +500,6 @@
 				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
 				"${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/SPPermissions/SPPermissions.framework",
 				"${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
@@ -464,7 +517,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRelay.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SPPermissions.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkyFloatingLabelTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
@@ -512,22 +564,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA8E5F8327C3BD4B00B2629A /* NetworkLayer.swift in Sources */,
 				FA7B650926A9D62D00FC230D /* MainCoordinator.swift in Sources */,
 				FA8E5F8127C39FA100B2629A /* DemoAppCoordinator.swift in Sources */,
 				FA7B64F526A9987A00FC230D /* LoginViewController.swift in Sources */,
 				FA7B651126A9D9FE00FC230D /* SettingsRoute.swift in Sources */,
 				FA7B651226A9D9FE00FC230D /* SettingsViewController.swift in Sources */,
+				FA8E5F9227C3C40100B2629A /* CharactersCoordinator.swift in Sources */,
+				FA8E5F9F27C3CA8800B2629A /* CharacterListInteractor.swift in Sources */,
+				FA8E5F8727C3C30100B2629A /* Characters.swift in Sources */,
 				FA7B64ED26A9982600FC230D /* SplashRoute.swift in Sources */,
 				FA7B64DC26A629DD00FC230D /* SplashCoordinator.swift in Sources */,
 				FA7B64F626A9987A00FC230D /* LoginBuilder.swift in Sources */,
+				FA8E5F9B27C3C43C00B2629A /* CharacterListRoute.swift in Sources */,
 				FA7B64F726A9987A00FC230D /* LoginViewModel.swift in Sources */,
 				FA7B64EC26A9982600FC230D /* SplashViewModel.swift in Sources */,
+				FA8E5FA127C3D71800B2629A /* CharacterCell.swift in Sources */,
+				FA8E5F9927C3C43C00B2629A /* CharacterListBuilder.swift in Sources */,
+				FA8E5F8527C3BD5F00B2629A /* ApiClient.swift in Sources */,
 				FAF584E426A1ED90006725DC /* AppDelegate.swift in Sources */,
 				FA7B64DE26A62A1300FC230D /* UIStoryboard+Demo.swift in Sources */,
 				FA7B64EA26A9982600FC230D /* SplashBuilder.swift in Sources */,
+				FA8E5F9827C3C43C00B2629A /* CharacterListViewController.swift in Sources */,
 				FA7B64FE26A9995200FC230D /* Repository.swift in Sources */,
 				FAF584E626A1ED90006725DC /* SceneDelegate.swift in Sources */,
 				FA7B651326A9D9FE00FC230D /* SettingsBuilder.swift in Sources */,
+				FA8E5F9A27C3C43C00B2629A /* CharacterListViewModel.swift in Sources */,
 				FA7B64F926A9988C00FC230D /* LoginCoordinator.swift in Sources */,
 				FA7B64EB26A9982600FC230D /* SplashViewController.swift in Sources */,
 				FA7B64F426A9987A00FC230D /* LoginRoute.swift in Sources */,

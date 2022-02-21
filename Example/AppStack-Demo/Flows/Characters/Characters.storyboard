@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Character List View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="CharacterListViewController" id="Y6W-OH-hqX" customClass="CharacterListViewController" customModule="AppStack_Demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Ggn-Og-YMm">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CharacterCell" rowHeight="246" id="Sdo-i6-jjW" customClass="CharacterCell" customModule="Reddit" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="246"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Sdo-i6-jjW" id="G9f-G0-u2W">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="246"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fYr-a4-KuA">
+                                                    <rect key="frame" x="30" y="21" width="354" height="204"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="200" id="1ng-F1-lco"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="fYr-a4-KuA" firstAttribute="leading" secondItem="G9f-G0-u2W" secondAttribute="leadingMargin" constant="10" id="3eu-YC-rgZ"/>
+                                                <constraint firstItem="fYr-a4-KuA" firstAttribute="trailing" secondItem="G9f-G0-u2W" secondAttribute="trailingMargin" constant="-10" id="8v7-UK-uWg"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="fYr-a4-KuA" secondAttribute="bottom" constant="10" id="FZg-HV-SjU"/>
+                                                <constraint firstItem="fYr-a4-KuA" firstAttribute="top" secondItem="G9f-G0-u2W" secondAttribute="topMargin" constant="10" id="GSs-Ey-daU"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="characterImageView" destination="fYr-a4-KuA" id="2Tv-Zv-PPX"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Ggn-Og-YMm" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="Inh-uA-LKQ"/>
+                            <constraint firstItem="Ggn-Og-YMm" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="QaU-u2-BDk"/>
+                            <constraint firstItem="Ggn-Og-YMm" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="cAk-89-SIm"/>
+                            <constraint firstItem="Ggn-Og-YMm" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="s2d-kY-y0t"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="charactersTableView" destination="Ggn-Og-YMm" id="fwg-iG-87S"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="44.927536231884062" y="116.51785714285714"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

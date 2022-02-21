@@ -21,7 +21,7 @@ final class Repository {
     
     private let disposeBag = DisposeBag()
     
-    // network layer
+    private let networkLayer = NetworkLayer()
     
     // local storage
     
@@ -58,5 +58,16 @@ extension Repository {
     func logout() {
         
         appStateRelay.accept(.loggedOut)
+    }
+}
+
+extension Repository {
+    
+    func getCharacters() -> Single<[CharacterEntity]> {
+        networkLayer.getCharacters()
+    }
+    
+    func getCharacters(page: Int?) -> Single<[CharacterEntity]> {
+        networkLayer.getCharacters(page: page)
     }
 }
