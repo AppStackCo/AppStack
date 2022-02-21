@@ -12,10 +12,10 @@ final class MainCoordinator: TabbarCoordinator {
     
     override func buildViewControllers() -> [UIViewController] {
         
-        let settingsViewController = SettingsBuilder().build(route: self)
+        let settingsViewController = SettingsBuilder.build(route: self)
         settingsViewController.tabBarItem = UITabBarItem(title: "First", image: nil, tag: 1)
 
-        let settingsViewController2 = SettingsBuilder().build(route: self)
+        let settingsViewController2 = SettingsBuilder.build(route: self)
         settingsViewController2.tabBarItem = UITabBarItem(title: "Second", image: nil, tag: 2)
 
         return [settingsViewController, settingsViewController2]

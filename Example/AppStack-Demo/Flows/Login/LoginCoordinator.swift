@@ -11,7 +11,7 @@ import AppStack
 final class LoginCoordinator: NavigationCoordinator {
     
     override func buildRoot() -> UIViewController {
-        let rootViewController = LoginBuilder().build(route: self)
+        let rootViewController = LoginBuilder.build(route: self)
         return rootViewController
     }
 }

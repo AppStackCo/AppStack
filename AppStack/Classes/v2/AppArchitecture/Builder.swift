@@ -23,11 +23,11 @@ public protocol Builder {
     associatedtype VC: ViewControllable & UIViewController & StoryboardBased
     
     /// assembly all together
-    func build(route: R, data: D?) -> VC
+    static func build(route: R, data: D?) -> VC
 }
 
 extension Builder {
-    public func build(route: R, data: D? = nil) -> VC {
+    public static func build(route: R, data: D? = nil) -> VC {
         let viewModel = VM.init(route: route as! VM.R, data: data as? VM.D)
         var viewController = VC.inflateFromStoryboard()
         viewController.viewModel = viewModel as? VC.VM

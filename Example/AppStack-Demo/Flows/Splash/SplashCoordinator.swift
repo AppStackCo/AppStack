@@ -13,7 +13,7 @@ final class SplashCoordinator: NavigationCoordinator {
     var coordinatorDidEnd: (() -> Void)?
         
     override func buildRoot() -> UIViewController {
-        let rootViewController = SplashBuilder().build(route: self)
+        let rootViewController = SplashBuilder.build(route: self)
         return rootViewController
     }
 }
