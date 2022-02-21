@@ -24,13 +24,4 @@ open class TabbarCoordinator: Coordinator<UITabBarController> {
     open func buildViewControllers() -> [UIViewController] {
         fatalError("You should override buildViewControllers in \(String(describing: self)) !!!")
     }
-//
-//    func addCoordinator(coordinator: NavigationCoordinator, title: String, tag: Int) -> UIViewController {
-//
-//        coordinator.setup(navigationOption: .newNavigation)
-//        coordinator.container.tabBarItem = UITabBarItem(title: title, image: nil, tag: tag)
-//
-//        return coordinator.container
-//    }
-    
 }

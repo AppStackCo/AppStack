@@ -1,9 +1,9 @@
 //
 //  Builder.swift
-//  DemoArchitecture
+//  AppStack
 //
 //  Created by Marius Gutoi on 07/02/2019.
-//  Copyright © 2019 Marius Gutoi. All rights reserved.
+//  Copyright © 2019 AppStack. All rights reserved.
 //
 
 import UIKit
@@ -20,7 +20,7 @@ public protocol Builder {
     associatedtype D
     
     /// view controller
-    associatedtype VC: ViewControllable & UIViewController & StoryboardBased
+    associatedtype VC: UIViewController & ViewControllable & StoryboardBased
     
     /// assembly all together
     static func build(route: R, data: D?) -> VC

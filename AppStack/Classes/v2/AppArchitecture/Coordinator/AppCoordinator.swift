@@ -5,13 +5,15 @@
 //  Created by Marius Gutoi on 22.07.2021.
 //
 
+import UIKit
+
 open class AppCoordinator: Coordinator<UIWindow> {
 
     public private(set) weak var rootCoordinator: CoordinatorType?
     
-    public override var childCoordinators: [CoordinatorType] {
-        return [rootCoordinator].compactMap { $0 }
-    }
+//    public override var childCoordinators: [CoordinatorType] {
+//        return [rootCoordinator].compactMap { $0 }
+//    }
     
     public init(container: UIWindow) {
         super.init()
@@ -29,7 +31,7 @@ open class AppCoordinator: Coordinator<UIWindow> {
 
 public extension AppCoordinator {
     func present<Container: UIViewController>(coordinator: Coordinator<Container>) {
-        super.start(coordinator: coordinator)
+//        super.start(coordinator: coordinator)
         
         rootCoordinator = coordinator
         

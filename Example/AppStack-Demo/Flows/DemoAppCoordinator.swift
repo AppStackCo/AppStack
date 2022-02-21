@@ -11,6 +11,8 @@ import RxSwift
 
 class DemoAppCoordinator: AppCoordinator {
     
+    private let disposeBag = DisposeBag()
+    
     func start() {
         
         let coordinator = SplashCoordinator()

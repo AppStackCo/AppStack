@@ -1,9 +1,9 @@
 //
 //  Route.swift
-//  DemoArchitecture
+//  AppStack
 //
 //  Created by Marius Gutoi on 07/02/2019.
-//  Copyright © 2019 Marius Gutoi. All rights reserved.
+//  Copyright © 2019 AppStack. All rights reserved.
 //
 
 import Foundation

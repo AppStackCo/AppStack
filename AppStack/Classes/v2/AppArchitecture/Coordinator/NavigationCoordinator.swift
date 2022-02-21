@@ -56,14 +56,14 @@ extension NavigationCoordinator {
 
     /// will present the navigation coordinator using the same navigation controller
     public func prepare(otherNavigationCoordinator: NavigationCoordinator) {
-        super.start(coordinator: otherNavigationCoordinator)
+//        super.start(coordinator: otherNavigationCoordinator)
         
         otherNavigationCoordinator.setup(navigationOption: .useNavigation(container))
     }
     
     /// will present the navigation coordinator using the same navigation controller
     public func present(otherNavigationCoordinator: NavigationCoordinator) {
-        super.start(coordinator: otherNavigationCoordinator)
+//        super.start(coordinator: otherNavigationCoordinator)
         
         otherNavigationCoordinator.setup(navigationOption: .useNavigation(container))
         container.pushViewController(otherNavigationCoordinator.rootViewController, animated: true)
@@ -73,7 +73,7 @@ extension NavigationCoordinator {
      will present the navigation coordinator using the same navigation controller, all view controllers which are in the stack after **startViewController**, will be popped
      */
     public func present<T: UIViewController>(otherNavigationCoordinator: NavigationCoordinator, startViewContollerType: T.Type) {
-        super.start(coordinator: otherNavigationCoordinator)
+//        super.start(coordinator: otherNavigationCoordinator)
         
         otherNavigationCoordinator.setup(navigationOption: .useNavigation(container))
         
@@ -88,7 +88,7 @@ extension NavigationCoordinator {
     
     /// will present modally the navigation coordinator. Presenter will be the current navigation controller
     public func presentModal(otherNavigationCoordinator: NavigationCoordinator) {
-        super.start(coordinator: otherNavigationCoordinator)
+//        super.start(coordinator: otherNavigationCoordinator)
 
         otherNavigationCoordinator.setup(navigationOption: .newNavigation)
         container.present(otherNavigationCoordinator.container, animated: true, completion: nil)
@@ -116,30 +116,9 @@ extension NavigationCoordinator {
     }
 }
 
-extension NavigationCoordinator {
-    
-    /// end current coordinator if it was presented modally
-    ///
-    /// Navigation coordinators can share the same container (NavigationController) and when one coordinator decides to end modal,
-    /// then all navigation coordinators that are sharing the same container should unlink fom container
-    ///
-    public func endModal() {
-
-//        guard let presenter = container.presentingViewController else {
-//            print("this coordinator was not presented modally")
-//            return
-//        }
-//        presenter.dismiss(animated: true) {
-//            /// break link to container
-//            self.container.coordinators?.forEach { $0?.container = nil }
-//        }
-
-        
-        guard let presenter = container.presentingViewController else {
-            fatalError("This coordinator was not presented modally")
-        }
-        presenter.dismiss(animated: true) {
-//            self.parentCoordinator?.didFinish(coordinator: self)
-        }
+extension UINavigationController {
+    func present(_ otherNavigationCoordinator: NavigationCoordinator, animated: Bool = true) {
+        otherNavigationCoordinator.setup(navigationOption: .useNavigation(self))
+        pushViewController(otherNavigationCoordinator.rootViewController, animated: animated)
     }
 }
