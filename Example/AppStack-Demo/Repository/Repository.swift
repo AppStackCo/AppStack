@@ -61,6 +61,7 @@ extension Repository {
     }
 }
 
+
 extension Repository {
         
     func getCharacters(page: Int?) -> Single<([CharacterEntity], Bool)> {

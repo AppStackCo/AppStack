@@ -13,6 +13,7 @@ end
 target 'AppStack_Tests' do
   pod 'AppStack', :path => '../'
   
+  pod 'RxBlocking'
   pod 'Quick'
   pod 'Nimble'
 end

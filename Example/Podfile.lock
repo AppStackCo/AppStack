@@ -27,6 +27,8 @@ PODS:
   - RxBiBinding (0.3.5):
     - RxCocoa (~> 6.0)
     - RxSwift (~> 6.0)
+  - RxBlocking (6.2.0):
+    - RxSwift (= 6.2.0)
   - RxCocoa (6.2.0):
     - RxRelay (= 6.2.0)
     - RxSwift (= 6.2.0)
@@ -47,6 +49,7 @@ DEPENDENCIES:
   - Moya/RxSwift
   - Nimble
   - Quick
+  - RxBlocking
   - SDWebImage
 
 SPEC REPOS:
@@ -61,6 +64,7 @@ SPEC REPOS:
     - Overture
     - Quick
     - RxBiBinding
+    - RxBlocking
     - RxCocoa
     - RxDataSources
     - RxRelay
@@ -84,6 +88,7 @@ SPEC CHECKSUMS:
   Overture: 2e6252ead5da6d3347f758047f27a31cb469d59d
   Quick: 6473349e43b9271a8d43839d9ba1c442ed1b7ac4
   RxBiBinding: c4de0aad6ee668fa73ea6ba423bc0ab5d77b986b
+  RxBlocking: 0b29f7d2079109a8de49c411381bed7c33ef1eeb
   RxCocoa: 4baf94bb35f2c0ab31bc0cb9f1900155f646ba42
   RxDataSources: aa47cc1ed6c500fa0dfecac5c979b723542d79cf
   RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f
@@ -91,6 +96,6 @@ SPEC CHECKSUMS:
   SDWebImage: 4dc3e42d9ec0c1028b960a33ac6b637bb432207b
   SkyFloatingLabelTextField: 79ddc40e4ad59707fedbb48d605417aee48bb78a
 
-PODFILE CHECKSUM: 51cc6dc4994e500745f03711c30c1cd704f1c8d9
+PODFILE CHECKSUM: 6032f870a0590f8d0dc256d38f3ce1aff2efbabe
 
 COCOAPODS: 1.11.2

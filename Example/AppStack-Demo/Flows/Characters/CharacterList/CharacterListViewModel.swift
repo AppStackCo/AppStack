@@ -25,10 +25,11 @@ final class CharacterListViewModel: ViewModel {
     
     // additional properties go here
     
-    private lazy var characterListInteractor = CharacterListInteractor()
+    private lazy var characterListInteractor =
+        CharacterListInteractor(charactersProvider: Repository.shared.getCharacters)
     
     var charactersDriver: Driver<[SectionOfCharacterListCellModels]> {
-        characterListInteractor.charactersRelay
+        characterListInteractor.charactersObservable
             .map { characters in
                 [SectionOfCharacterListCellModels(header: "", items: characters.map { .character($0) })]
             }

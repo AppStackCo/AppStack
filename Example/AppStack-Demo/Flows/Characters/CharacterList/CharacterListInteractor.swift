@@ -12,16 +12,25 @@ import RxSwift
 // TODO: handle errors
 // TODO: handle loading animations
 
+typealias CharactersProvider = (Int?) -> Single<([CharacterEntity], Bool)>
+
 final class CharacterListInteractor {
     
+    public lazy var charactersObservable = charactersRelay.asObservable().skip(1)
+    private let charactersRelay = BehaviorRelay<[CharacterEntity]>(value: [])
+    
     private let disposeBag = DisposeBag()
-    
-    let charactersRelay = BehaviorRelay<[CharacterEntity]>(value: [])
-    
+        
     private var isRequestingPage = false
     private var nextPage: Int?
+
+    private let charactersProvider: CharactersProvider
     
-    func getFirstPage() {
+    public init(charactersProvider: @escaping CharactersProvider) {
+        self.charactersProvider = charactersProvider
+    }
+    
+    public func getFirstPage() {
         
         // start animation
         
@@ -39,7 +48,7 @@ final class CharacterListInteractor {
             .disposed(by: disposeBag)
     }
     
-    func getNextPage() {
+    public func getNextPage() {
         
         guard nextPage != nil else { return }
         
@@ -72,7 +81,7 @@ final class CharacterListInteractor {
         
         let currentPage = nextPage
         
-        return Repository.shared.getCharacters(page: currentPage)
+        return charactersProvider(currentPage)
             .do(
                 onSuccess: { [weak self] _, hasNextPage in
                     if hasNextPage {
