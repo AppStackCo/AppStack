@@ -24,13 +24,11 @@ final class CharacterListViewModel: ViewModel {
     private let disposeBag = DisposeBag()
     
     // additional properties go here
-
-    private let charactersRelay = BehaviorRelay<[CharacterEntity]>(value: [])
     
-    private let characterListInteractor = CharacterListInteractor()
+    private lazy var characterListInteractor = CharacterListInteractor()
     
     var charactersDriver: Driver<[SectionOfCharacterListCellModels]> {
-        charactersRelay
+        characterListInteractor.charactersRelay
             .map { characters in
                 [SectionOfCharacterListCellModels(header: "", items: characters.map { .character($0) })]
             }
@@ -45,37 +43,13 @@ final class CharacterListViewModel: ViewModel {
         // additional init go here
         
         characterListInteractor.getFirstPage()
-            .subscribe(onSuccess: { [weak self] characters in
-                print(characters)
-                self?.charactersRelay.accept(characters)
-            })
-            .disposed(by: disposeBag)
     }
     
     func getNextPageIfAny() {
-        
-//        guard characterListInteractor.hasMorePages else { return }
-        
+                
         // start animation
         
         characterListInteractor.getNextPage()
-            .subscribe(
-                onSuccess: { [weak self] newCharacters in
-                    
-                    guard var characters = self?.charactersRelay.value else { return }
-                    characters.append(contentsOf: newCharacters)
-                    self?.charactersRelay.accept(characters)
-                    
-                }, onFailure: { _ in
-
-                    // handle error
-                    
-                },onDisposed: {
-                    
-                    // stop animation
-                    
-                })
-            .disposed(by: disposeBag)
     }
 }
 
