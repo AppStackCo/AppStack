@@ -39,6 +39,8 @@ PODS:
   - RxRelay (6.2.0):
     - RxSwift (= 6.2.0)
   - RxSwift (6.2.0)
+  - RxTest (6.2.0):
+    - RxSwift (= 6.2.0)
   - SDWebImage (5.12.1):
     - SDWebImage/Core (= 5.12.1)
   - SDWebImage/Core (5.12.1)
@@ -50,6 +52,7 @@ DEPENDENCIES:
   - Nimble
   - Quick
   - RxBlocking
+  - RxTest
   - SDWebImage
 
 SPEC REPOS:
@@ -69,6 +72,7 @@ SPEC REPOS:
     - RxDataSources
     - RxRelay
     - RxSwift
+    - RxTest
     - SDWebImage
     - SkyFloatingLabelTextField
 
@@ -93,9 +97,10 @@ SPEC CHECKSUMS:
   RxDataSources: aa47cc1ed6c500fa0dfecac5c979b723542d79cf
   RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f
   RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
+  RxTest: 0c692fa672b694373ba86d2b00033595297a2831
   SDWebImage: 4dc3e42d9ec0c1028b960a33ac6b637bb432207b
   SkyFloatingLabelTextField: 79ddc40e4ad59707fedbb48d605417aee48bb78a
 
-PODFILE CHECKSUM: 6032f870a0590f8d0dc256d38f3ce1aff2efbabe
+PODFILE CHECKSUM: 69fee5e618ce4279d918d3430e0fbb2830d735af
 
 COCOAPODS: 1.11.2

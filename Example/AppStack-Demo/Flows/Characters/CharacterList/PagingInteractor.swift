@@ -13,7 +13,7 @@ import RxSwift
 // TODO: handle loading animations
 
 struct PageProvider<T> {
-    let provider: (Int?) -> Single<([T], Bool)>
+    let getPage: (Int?) -> Single<([T], Bool)>
 }
 
 final class PagingInteractor<T> {
@@ -24,6 +24,7 @@ final class PagingInteractor<T> {
     private let disposeBag = DisposeBag()
         
     private var isRequestingPage = false
+    
     private var nextPage: Int?
 
     private let pageProvider: PageProvider<T>
@@ -83,7 +84,7 @@ final class PagingInteractor<T> {
         
         let currentPage = nextPage
         
-        return pageProvider.provider(currentPage)
+        return pageProvider.getPage(currentPage)
             .do(
                 onSuccess: { [weak self] _, hasNextPage in
                     if hasNextPage {

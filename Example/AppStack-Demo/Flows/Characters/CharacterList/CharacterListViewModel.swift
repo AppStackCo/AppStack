@@ -26,7 +26,7 @@ final class CharacterListViewModel: ViewModel {
     // additional properties go here
     
     private lazy var characterListInteractor =
-        PagingInteractor(pageProvider: PageProvider(provider: Repository.shared.getCharacters))
+        PagingInteractor(pageProvider: PageProvider(getPage: Repository.shared.getCharacters))
     
     var charactersDriver: Driver<[SectionOfCharacterListCellModels]> {
         characterListInteractor.allElementsObservable

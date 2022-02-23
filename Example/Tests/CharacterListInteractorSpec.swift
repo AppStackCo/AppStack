@@ -8,6 +8,7 @@
 
 import RxSwift
 import RxBlocking
+import RxTest
 import Quick
 import Nimble
 
@@ -37,7 +38,10 @@ class CharacterListInteractorSpec: QuickSpec {
 
     override func spec() {
         
-        var interactor: CharacterListInteractor!
+        var interactor: PagingInteractor<Int>!
+        
+        var scheduler: TestScheduler!
+        var disposeBag: DisposeBag!
         
         describe("interactor") {
                         
@@ -49,20 +53,20 @@ class CharacterListInteractorSpec: QuickSpec {
                 
                 beforeEach {
                     
-                    let charactersProvider: CharactersProvider = { page in
+                    let pageProvider = PageProvider<Int> { page in
                         .never()
                     }
                     
-                    interactor = CharacterListInteractor(charactersProvider: charactersProvider)
+                    interactor = PagingInteractor(pageProvider: pageProvider)
                 }
                                 
                 it("should not receive anything in 2 seconds") {
                 
-                    guard let _ = try? interactor.charactersObservable.toBlocking(timeout: 2).first() else {
+                    guard let _ = try? interactor.allElementsObservable.toBlocking(timeout: 2).first() else {
                         return
                     }
                     
-                    fail("characters should not return")
+                    fail("elements should not be returned")
                 }
                 
             }
@@ -78,28 +82,82 @@ class CharacterListInteractorSpec: QuickSpec {
                 }
                 
                 beforeEach {
-                    
-                    let charactersProvider: CharactersProvider = { page in
-                            .just(([CharacterEntity(name: "Name 1", image: URL(string: "")!)], false))
+                    interactor =
+                        PagingInteractor(pageProvider: PageProvider<Int> { page in
+                            .just(([1, 2], false))
                             .delay(.seconds(1), scheduler: MainScheduler.instance)
-                    }
-                    
-                    interactor = CharacterListInteractor(charactersProvider: charactersProvider)
+                    })
                 }
                                 
-                it("should not receive anything in 2 seconds") {
-                
-                    guard let _ = try? interactor.charactersObservable.toBlocking(timeout: 2).first() else {
+                it("should receive first page") {
+
+                    interactor.getFirstPage()
+                    
+                    guard let allElements = try? interactor.allElementsObservable.toBlocking(timeout: 2).first() else {
+
+                        fail("first page should be returned")
                         return
                     }
                     
-                    fail("characters should not return")
+                    expect(allElements).to(equal([1, 2]))
                 }
-                
             }
             
         }
 
+        describe("initial interactor") {
+                 
+            afterEach {
+                print("GIVEN: after")
+            }
+            
+            beforeEach {
+                print("GIVEN: before")
+            }
+            
+            context("get first page twice in a second") {
+                
+                afterEach {
+                    scheduler = nil
+                    disposeBag = nil
+                    
+                    interactor = nil
+                }
+                
+                beforeEach {
+                    
+                    scheduler = TestScheduler(initialClock: 0)
+                    disposeBag = DisposeBag()
+                    
+                    interactor =
+                        PagingInteractor(pageProvider: PageProvider<Int> { page in
+                            .just(([1, 2], false))
+                            .delay(.seconds(1), scheduler: MainScheduler.instance)
+                    })
+                }
+                
+                it("should ignore second request") {
+
+                    // create observer
+                    let allElementsObserver = scheduler.createObserver([Int].self)
+
+                    // bind observer
+                    interactor.allElementsObservable
+                        .bind(to: allElementsObserver)
+                        .disposed(by: disposeBag)
+                    
+                    // schedule two consecutive actions
+                    scheduler.scheduleAt(2) {
+                        interactor.getFirstPage()
+                        interactor.getFirstPage()
+                    }
+                    
+                    scheduler.start()
+                    
+                    expect(allElementsObserver.events).to(equal([.next(2, [1, 2])]))
+                }
+            }
+        }
         
     }
     
