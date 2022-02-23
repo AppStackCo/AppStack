@@ -1,5 +1,5 @@
 //
-//  CharacterListInteractor.swift
+//  PagingInteractor.swift
 //  AppStack-Demo
 //
 //  Created by Marius Gutoi on 21/2/22.
@@ -12,22 +12,24 @@ import RxSwift
 // TODO: handle errors
 // TODO: handle loading animations
 
-typealias CharactersProvider = (Int?) -> Single<([CharacterEntity], Bool)>
+struct PageProvider<T> {
+    let provider: (Int?) -> Single<([T], Bool)>
+}
 
-final class CharacterListInteractor {
+final class PagingInteractor<T> {
     
-    public lazy var charactersObservable = charactersRelay.asObservable().skip(1)
-    private let charactersRelay = BehaviorRelay<[CharacterEntity]>(value: [])
+    public lazy var allElementsObservable = allElementsRelay.asObservable().skip(1)
+    private let allElementsRelay = BehaviorRelay<[T]>(value: [])
     
     private let disposeBag = DisposeBag()
         
     private var isRequestingPage = false
     private var nextPage: Int?
 
-    private let charactersProvider: CharactersProvider
+    private let pageProvider: PageProvider<T>
     
-    public init(charactersProvider: @escaping CharactersProvider) {
-        self.charactersProvider = charactersProvider
+    public init(pageProvider: PageProvider<T>) {
+        self.pageProvider = pageProvider
     }
     
     public func getFirstPage() {
@@ -36,9 +38,9 @@ final class CharacterListInteractor {
         
         getPage(page: nil)
             .subscribe(
-                onSuccess: { [weak self] characters in
+                onSuccess: { [weak self] elements in
                     
-                    self?.charactersRelay.accept(characters)
+                    self?.allElementsRelay.accept(elements)
                     
                 }, onDisposed: {
                     
@@ -56,11 +58,11 @@ final class CharacterListInteractor {
         
         return getPage(page: nextPage)
             .subscribe(
-                onSuccess: { [weak self] newCharacters in
+                onSuccess: { [weak self] newElements in
                     
-                    guard var characters = self?.charactersRelay.value else { return }
-                    characters.append(contentsOf: newCharacters)
-                    self?.charactersRelay.accept(characters)
+                    guard var allElements = self?.allElementsRelay.value else { return }
+                    allElements.append(contentsOf: newElements)
+                    self?.allElementsRelay.accept(allElements)
                     
                 }, onFailure: { _ in
                     
@@ -74,14 +76,14 @@ final class CharacterListInteractor {
             .disposed(by: disposeBag)
     }
         
-    private func getPage(page: Int?) -> Single<[CharacterEntity]> {
+    private func getPage(page: Int?) -> Single<[T]> {
         
         guard !isRequestingPage else { return .just([]) }
         isRequestingPage = true
         
         let currentPage = nextPage
         
-        return charactersProvider(currentPage)
+        return pageProvider.provider(currentPage)
             .do(
                 onSuccess: { [weak self] _, hasNextPage in
                     if hasNextPage {

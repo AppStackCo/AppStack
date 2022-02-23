@@ -39,10 +39,10 @@
 		FA8E5F9A27C3C43C00B2629A /* CharacterListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8E5F9627C3C43B00B2629A /* CharacterListViewModel.swift */; };
 		FA8E5F9B27C3C43C00B2629A /* CharacterListRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8E5F9727C3C43B00B2629A /* CharacterListRoute.swift */; };
 		FA8E5F9D27C3C45600B2629A /* Characters.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA8E5F9C27C3C45600B2629A /* Characters.storyboard */; };
-		FA8E5F9F27C3CA8800B2629A /* CharacterListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8E5F9E27C3CA8800B2629A /* CharacterListInteractor.swift */; };
+		FA8E5F9F27C3CA8800B2629A /* PagingInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8E5F9E27C3CA8800B2629A /* PagingInteractor.swift */; };
 		FA8E5FA127C3D71800B2629A /* CharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8E5FA027C3D71800B2629A /* CharacterCell.swift */; };
 		FA8E5FA527C5043C00B2629A /* CharacterListInteractorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8E5FA427C5043C00B2629A /* CharacterListInteractorSpec.swift */; };
-		FA8E5FA727C509F600B2629A /* CharacterListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8E5F9E27C3CA8800B2629A /* CharacterListInteractor.swift */; };
+		FA8E5FA727C509F600B2629A /* PagingInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8E5F9E27C3CA8800B2629A /* PagingInteractor.swift */; };
 		FA8E5FA827C50A1900B2629A /* Characters.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8E5F8627C3C30100B2629A /* Characters.swift */; };
 		FAF584E426A1ED90006725DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF584E326A1ED90006725DC /* AppDelegate.swift */; };
 		FAF584E626A1ED90006725DC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF584E526A1ED90006725DC /* SceneDelegate.swift */; };
@@ -92,7 +92,7 @@
 		FA8E5F9627C3C43B00B2629A /* CharacterListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterListViewModel.swift; sourceTree = "<group>"; };
 		FA8E5F9727C3C43B00B2629A /* CharacterListRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterListRoute.swift; sourceTree = "<group>"; };
 		FA8E5F9C27C3C45600B2629A /* Characters.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Characters.storyboard; sourceTree = "<group>"; };
-		FA8E5F9E27C3CA8800B2629A /* CharacterListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListInteractor.swift; sourceTree = "<group>"; };
+		FA8E5F9E27C3CA8800B2629A /* PagingInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingInteractor.swift; sourceTree = "<group>"; };
 		FA8E5FA027C3D71800B2629A /* CharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCell.swift; sourceTree = "<group>"; };
 		FA8E5FA427C5043C00B2629A /* CharacterListInteractorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListInteractorSpec.swift; sourceTree = "<group>"; };
 		FAF584E126A1ED8F006725DC /* AppStack-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AppStack-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -297,7 +297,7 @@
 				FA8E5F9627C3C43B00B2629A /* CharacterListViewModel.swift */,
 				FA8E5F9727C3C43B00B2629A /* CharacterListRoute.swift */,
 				FA8E5F9527C3C43B00B2629A /* CharacterListBuilder.swift */,
-				FA8E5F9E27C3CA8800B2629A /* CharacterListInteractor.swift */,
+				FA8E5F9E27C3CA8800B2629A /* PagingInteractor.swift */,
 				FA8E5FA027C3D71800B2629A /* CharacterCell.swift */,
 			);
 			path = CharacterList;
@@ -580,7 +580,7 @@
 			files = (
 				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
 				FA8E5FA527C5043C00B2629A /* CharacterListInteractorSpec.swift in Sources */,
-				FA8E5FA727C509F600B2629A /* CharacterListInteractor.swift in Sources */,
+				FA8E5FA727C509F600B2629A /* PagingInteractor.swift in Sources */,
 				FA8E5FA827C50A1900B2629A /* Characters.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -596,7 +596,7 @@
 				FA7B651126A9D9FE00FC230D /* SettingsRoute.swift in Sources */,
 				FA7B651226A9D9FE00FC230D /* SettingsViewController.swift in Sources */,
 				FA8E5F9227C3C40100B2629A /* CharactersCoordinator.swift in Sources */,
-				FA8E5F9F27C3CA8800B2629A /* CharacterListInteractor.swift in Sources */,
+				FA8E5F9F27C3CA8800B2629A /* PagingInteractor.swift in Sources */,
 				FA8E5F8727C3C30100B2629A /* Characters.swift in Sources */,
 				FA7B64ED26A9982600FC230D /* SplashRoute.swift in Sources */,
 				FA7B64DC26A629DD00FC230D /* SplashCoordinator.swift in Sources */,
