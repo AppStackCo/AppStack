@@ -17,7 +17,7 @@ final class CharacterListViewController: UIViewController, ViewControllable {
     var viewModel: CharacterListViewModel!
     
     private let disposeBag = DisposeBag()
-    
+        
     @IBOutlet weak var charactersTableView: UITableView! {
         didSet {
             charactersTableView.separatorStyle = .none
@@ -26,7 +26,7 @@ final class CharacterListViewController: UIViewController, ViewControllable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
         // view model inputs
         
         let loadNextPage = charactersTableView.rx.contentOffset
@@ -61,9 +61,19 @@ final class CharacterListViewController: UIViewController, ViewControllable {
             .bind(to: charactersTableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
         
+        viewModel.isLoadingDriver
+            .debug()
+            .drive(onNext: { isLoading in
+                if isLoading {
+                    LoadingIndicator.shared.presentLoadingIndicator()
+                } else {
+                    LoadingIndicator.shared.dismissLoadingIndicator()
+                }
+            })
+            .disposed(by: disposeBag)
         
         // load first page
-        viewModel.loadFirstPage()
+//        viewModel.loadFirstPage()
     }
 }
 

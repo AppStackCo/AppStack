@@ -19,7 +19,8 @@ final class NetworkLayer {
         
         let provider = MoyaProvider<RickMortyApi>(
 //            stubClosure: MoyaProvider<SenukaiApi>.immediatelyStub,
-            plugins: [NetworkLoggerPlugin(configuration: loggerConfiguration)])
+//            plugins: [NetworkLoggerPlugin(configuration: loggerConfiguration)]
+        )
         
         return provider
     }()

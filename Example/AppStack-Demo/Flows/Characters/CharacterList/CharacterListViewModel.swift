@@ -49,11 +49,16 @@ final class CharacterListViewModel: ViewModel {
     /// OUTPUTS
     
     var charactersDriver: Driver<[SectionOfCharacterListCellModels]> {
-        characterListInteractor.allElementsObservable
+        characterListInteractor.elements
             .map { characters in
                 [SectionOfCharacterListCellModels(header: "", items: characters.map { .character($0) })]
             }
             .asDriver(onErrorJustReturn: [])
+    }
+    
+    var isLoadingDriver: Driver<Bool> {
+        characterListInteractor.isLoading
+            .asDriver(onErrorJustReturn: false)
     }
     
     init(route: CharacterListRoute, data: CharacterListData?) {
@@ -69,9 +74,9 @@ final class CharacterListViewModel: ViewModel {
         loadNextPage.bind(to: self.loadNextPage).disposed(by: disposeBag)
     }
     
-    func loadFirstPage() {
-        refresh.accept(())
-    }
+//    func loadFirstPage() {
+//        refresh.accept(())
+//    }
 }
 
 // MARK: - CharacterListData
