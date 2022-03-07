@@ -101,6 +101,7 @@ final class PagingInteractor<T> {
        
        let _elements = loadResults
            .map { $0.sorted(by: { $0.key < $1.key }).flatMap { $0.value } }
+           .skip(1) // skip first value (empty)
        
        let _error = page
            .map { $0.error }

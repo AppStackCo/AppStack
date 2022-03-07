@@ -11,172 +11,255 @@ import RxBlocking
 import RxTest
 import Quick
 import Nimble
+import RxRelay
 
-//@testable import AppStack_Demo
+/// PageInteractor
+///
+/// inputs:
+/// - refresh
+/// - load next page
+///
+/// outputs:
+/// - is loading
+/// - elements
+/// - error
+///
+/// dependency
+/// - get page
+///
+///
+/// TESTS:
+///
+/// GIVEN:
+/// no input
+///
+/// WHEN:
+/// --
+///
+/// THEN:
+/// receive first page
+///
+///
+/// GIVEN:
+/// no input
+///
+/// WHEN:
+/// --
+///
+/// THEN:
+/// receive first page
+
 
 class CharacterListInteractorSpec: QuickSpec {
 
     override func spec() {
+        
+        var refresh: PublishRelay<Void>!
+        var loadNextPage: PublishRelay<Void>!
         
         var interactor: PagingInteractor<Int>!
         
         var scheduler: TestScheduler!
         var disposeBag: DisposeBag!
         
-        describe("interactor") {
-                        
-            context("no data arriving") {
-                
-                afterEach {
-                    interactor = nil
-                }
-                
-                beforeEach {
-                    
-                    let pageProvider = PageProvider<Int> { page in
-                        .never()
-                    }
-                    
-                    interactor = PagingInteractor(pageProvider: pageProvider)
-                }
-                                
-                it("should not receive anything in 2 seconds") {
-                
-                    guard let _ = try? interactor.allElementsObservable.toBlocking(timeout: 2).first() else {
-                        return
-                    }
-                    
-                    fail("elements should not be returned")
-                }
-                
-            }
-            
-        }
         
-//        describe("success") {
-//                        
-//            context("first page") {
-//                
-//                afterEach {
-//                    interactor = nil
-//                }
-//                
-//                beforeEach {
-//                    interactor =
-//                        PagingInteractor(pageProvider: PageProvider<Int> { page in
-//                            .just(([1, 2], false))
-//                            .delay(.seconds(1), scheduler: MainScheduler.instance)
-//                    })
-//                }
-//                                
-//                it("should receive first page") {
-//
-//                    interactor.getFirstPage()
-//                    
-//                    guard let allElements = try? interactor.allElementsObservable.toBlocking(timeout: 2).first() else {
-//
-//                        fail("first page should be returned")
-//                        return
-//                    }
-//                    
-//                    expect(allElements).to(equal([1, 2]))
-//                }
-//            }
-//            
-//        }
+        /// GIVEN:
+        /// --
+        ///
+        /// WHEN:
+        /// no input
+        ///
+        /// THEN:
+        /// receive first page
+        ///
+        describe("--") {
 
-        describe("initial interactor") {
-                 
-            afterEach {
-                print("GIVEN: after")
-            }
-            
-            beforeEach {
-                print("GIVEN: before")
-            }
-            
-            context("get first page twice") {
-                
+            context("no input") {
+
                 afterEach {
+                    
                     scheduler = nil
                     disposeBag = nil
-                    
+
                     interactor = nil
                 }
-                
+
                 beforeEach {
-                    
-                    scheduler = TestScheduler(initialClock: 0, resolution: 1)
+
+                    scheduler = TestScheduler(initialClock: 0)
                     disposeBag = DisposeBag()
+
+                    refresh = PublishRelay()
+                    loadNextPage = PublishRelay()
+
+                    let paginationInput = PaginationInput(
+                        refresh: refresh.asObservable(),
+                        loadNextPage: loadNextPage.asObservable())
+
+                    interactor = PagingInteractor(input: paginationInput, pageProvider: pageProvider(scheduler: scheduler))
+                }
+
+                it("should receive first page") {
+
+                    // create observer
+                    let elementsObserver = scheduler.createObserver([Int].self)
+
+                    // bind observer
+                    interactor.elements
+                        .debug()
+                        .bind(to: elementsObserver)
+                        .disposed(by: disposeBag)
+
+                    scheduler.start()
                     
-                    interactor =
-                        PagingInteractor(pageProvider: PageProvider<Int> { page in
-                            .just(([1, 2], false))
-                            .delay(.seconds(2), scheduler: scheduler)
-                    })
+                    expect(elementsObserver.events).to(equal([.next(1, [1, 2])]))
                 }
-                
-                it("should ignore second request if comes in < 2s") {
+
+            }
+        }
+        
+        /// GIVEN:
+        /// no input
+        ///
+        /// WHEN:
+        /// load next page
+        ///
+        /// THEN:
+        /// receive first two pages
+        ///
+        describe("no input") {
+
+            context("load next page") {
+
+                afterEach {
+                    
+                    scheduler = nil
+                    disposeBag = nil
+
+                    interactor = nil
+                }
+
+                beforeEach {
+
+                    scheduler = TestScheduler(initialClock: 0)
+                    disposeBag = DisposeBag()
+
+                    refresh = PublishRelay()
+                    loadNextPage = PublishRelay()
+
+                    let paginationInput = PaginationInput(
+                        refresh: refresh.asObservable(),
+                        loadNextPage: loadNextPage.asObservable())
+
+                    interactor = PagingInteractor(input: paginationInput, pageProvider: pageProvider(scheduler: scheduler))
+                }
+
+                it("should receive first two pages") {
 
                     // create observer
-                    let allElementsObserver = scheduler.createObserver([Int].self)
+                    let elementsObserver = scheduler.createObserver([Int].self)
 
                     // bind observer
-                    interactor.allElementsObservable
+                    interactor.elements
                         .debug()
-                        .bind(to: allElementsObserver)
+                        .bind(to: elementsObserver)
                         .disposed(by: disposeBag)
 
-                    // schedule two consecutive actions
-                    scheduler.scheduleAt(2) {
-                        NSLog("after 2 sec")
-                        interactor.getFirstPage()
+                    scheduler.scheduleAt(1) {
+                        loadNextPage.accept(())
                     }
-
-                    scheduler.scheduleAt(3) {
-                        NSLog("after 3 sec")
-                        interactor.getFirstPage()
-                    }
-
-                    NSLog("Start")
+                    
                     scheduler.start()
-
-                    expect(allElementsObserver.events).to(equal([.next(4, [1, 2])]))
-                }
-                
-                it("should allow second request if comes in > 2s") {
-
-                    // create observer
-                    let allElementsObserver = scheduler.createObserver([Int].self)
-
-                    // bind observer
-                    interactor.allElementsObservable
-                        .debug()
-                        .bind(to: allElementsObserver)
-                        .disposed(by: disposeBag)
-
-                    // schedule two consecutive actions
-                    scheduler.scheduleAt(2) {
-                        interactor.getFirstPage()
-                    }
-
-                    scheduler.scheduleAt(5) {
-                        interactor.getFirstPage()
-                    }
-
-                    NSLog("Start")
-                    scheduler.start()
-
-                    expect(allElementsObserver.events).to(equal([
-                        .next(4, [1, 2]),
-                        .next(7, [1, 2])]))
+                    
+                    expect(elementsObserver.events).to(equal(
+                        [.next(1, [1, 2]),
+                         .next(2, [1, 2, 3, 4])]))
                 }
             }
         }
         
+        
+        /// GIVEN:
+        /// refresh
+        /// load next page
+        ///
+        /// WHEN:
+        /// refresh
+        ///
+        /// THEN:
+        /// receive first page
+        ///
+        describe("refresh and load next page") {
+
+            context("refresh") {
+
+                afterEach {
+                    
+                    scheduler = nil
+                    disposeBag = nil
+
+                    interactor = nil
+                }
+
+                beforeEach {
+
+                    scheduler = TestScheduler(initialClock: 0)
+                    disposeBag = DisposeBag()
+
+                    refresh = PublishRelay()
+                    loadNextPage = PublishRelay()
+
+                    let paginationInput = PaginationInput(
+                        refresh: refresh.asObservable(),
+                        loadNextPage: loadNextPage.asObservable())
+
+                    interactor = PagingInteractor(input: paginationInput, pageProvider: pageProvider(scheduler: scheduler))
+                }
+
+                it("should receive first page") {
+
+                    // create observer
+                    let elementsObserver = scheduler.createObserver([Int].self)
+
+                    // bind observer
+                    interactor.elements
+                        .debug()
+                        .bind(to: elementsObserver)
+                        .disposed(by: disposeBag)
+
+                    // refresh
+                    scheduler.scheduleAt(1) { refresh.accept(()) }
+                    
+                    // load next page
+                    scheduler.scheduleAt(2) { loadNextPage.accept(()) }
+                    
+                    // refresh
+                    scheduler.scheduleAt(3) { refresh.accept(()) }
+
+                    scheduler.start()
+                    
+                    expect(elementsObserver.events).to(equal(
+                        [.next(1, [1, 2]), // initial load
+                         .next(2, [1, 2]), // refresh
+                         .next(3, [1, 2, 3, 4]), // load next page
+                         .next(4, [1, 2])])) // refresh
+                }
+            }
+        }
+    }
+}
+
+func pageProvider(scheduler: SchedulerType) -> PageProvider<Int> {
+    
+    return PageProvider<Int> { page in
+        var results: [Int]
+        switch page {
+        case 1: results = [1, 2]
+        case 2: results = [3, 4]
+        default: fatalError()
+        }
+        
+        return .just((results, false)).delay(.seconds(1), scheduler: scheduler)
     }
     
 }
-
-
-
