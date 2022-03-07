@@ -25,8 +25,28 @@ final class CharacterListViewModel: ViewModel {
     
     // additional properties go here
     
-    private lazy var characterListInteractor =
-        PagingInteractor(pageProvider: PageProvider(getPage: Repository.shared.getCharacters))
+    /// INPUTS
+    
+    /// reloads first page and dumps all other cached pages.
+    private let refresh = PublishRelay<Void>()
+    
+    /// loads next page
+    private let loadNextPage = PublishRelay<Void>()
+    
+    /// Dependency
+    
+    private lazy var characterListInteractor: PagingInteractor<CharacterEntity> = {
+        
+        let paginationInput = PaginationInput(
+            refresh: refresh.asObservable(),
+            loadNextPage: loadNextPage.asObservable())
+        
+        return PagingInteractor(
+            input: paginationInput,
+            pageProvider: PageProvider(getPage: Repository.shared.getCharacters))
+    }()
+    
+    /// OUTPUTS
     
     var charactersDriver: Driver<[SectionOfCharacterListCellModels]> {
         characterListInteractor.allElementsObservable
@@ -43,14 +63,14 @@ final class CharacterListViewModel: ViewModel {
         
         // additional init go here
         
-        characterListInteractor.getFirstPage()
     }
     
-    func getNextPageIfAny() {
-                
-        // start animation
-        
-        characterListInteractor.getNextPage()
+    func bind(loadNextPage: Observable<Void>) {
+        loadNextPage.bind(to: self.loadNextPage).disposed(by: disposeBag)
+    }
+    
+    func loadFirstPage() {
+        refresh.accept(())
     }
 }
 

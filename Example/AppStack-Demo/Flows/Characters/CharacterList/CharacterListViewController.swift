@@ -27,6 +27,24 @@ final class CharacterListViewController: UIViewController, ViewControllable {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // view model inputs
+        
+        let loadNextPage = charactersTableView.rx.contentOffset
+            .debounce(RxTimeInterval.milliseconds(100), scheduler: MainScheduler.instance)
+            .flatMap { [weak self] offset -> Observable<Void> in
+                guard let tableView = self?.charactersTableView else { return Observable.empty() }
+                return tableView.isNearBottomEdge()
+                    ? Observable.just(())
+                    : Observable.empty()
+            }
+        
+        
+        // bind view model
+        viewModel.bind(loadNextPage: loadNextPage)
+        
+        
+        // bind to view model outputs
+        
         let dataSource = RxTableViewSectionedReloadDataSource<SectionOfCharacterListCellModels>(
             configureCell: { _, tableView, indexPath, item -> UITableViewCell in
                 
@@ -43,18 +61,9 @@ final class CharacterListViewController: UIViewController, ViewControllable {
             .bind(to: charactersTableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
         
-        charactersTableView.rx.contentOffset
-            .debounce(RxTimeInterval.milliseconds(300), scheduler: MainScheduler.instance)
-            .flatMap { [weak self] offset -> Observable<Void> in
-                guard let tableView = self?.charactersTableView else { return Observable.empty() }
-                return tableView.isNearBottomEdge()
-                    ? Observable.just(())
-                    : Observable.empty()
-            }
-            .subscribe(onNext: { [weak self] _ in
-                self?.viewModel.getNextPageIfAny()
-            })
-            .disposed(by: disposeBag)
+        
+        // load first page
+        viewModel.loadFirstPage()
     }
 }
 

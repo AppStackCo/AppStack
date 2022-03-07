@@ -12,28 +12,49 @@ import RxSwift
 // TODO: handle errors
 // TODO: handle loading animations
 
+struct PaginationInput {
+    /// reloads first page and dumps all other cached pages.
+    let refresh: Observable<Void>
+    /// loads next page
+    let loadNextPage: Observable<Void>
+}
+
+// dependency
 struct PageProvider<T> {
     let getPage: (Int?) -> Single<([T], Bool)>
 }
 
 final class PagingInteractor<T> {
     
+    /// Pagination Output
+    
+    // elements
     public lazy var allElementsObservable = allElementsRelay.asObservable().skip(1)
-    private let allElementsRelay = BehaviorRelay<[T]>(value: [])
+    
+    // error
+    
+    // is loading
     
     private let disposeBag = DisposeBag()
-        
+
+    private let allElementsRelay = BehaviorRelay<[T]>(value: [])
+
     private var isRequestingPage = false
     
     private var nextPage: Int?
 
     private let pageProvider: PageProvider<T>
     
-    public init(pageProvider: PageProvider<T>) {
+    public init(
+        input: PaginationInput,
+        pageProvider: PageProvider<T>) {
+            
         self.pageProvider = pageProvider
     }
     
     public func getFirstPage() {
+        
+        NSLog("getFirstPage")
         
         // start animation
         
@@ -46,6 +67,7 @@ final class PagingInteractor<T> {
                 }, onDisposed: {
                     
                     // stop animation
+                    print("get first page - disposed")
                     
                 })
             .disposed(by: disposeBag)
@@ -78,9 +100,13 @@ final class PagingInteractor<T> {
     }
         
     private func getPage(page: Int?) -> Single<[T]> {
-        
-        guard !isRequestingPage else { return .just([]) }
+
+        print("get page - 1 - is requesting page: \(isRequestingPage)")
+
+        guard !isRequestingPage else { return .never() }
         isRequestingPage = true
+        print("get page - 2 - is requesting page: true")
+
         
         let currentPage = nextPage
         
@@ -92,9 +118,20 @@ final class PagingInteractor<T> {
                     } else {
                         self?.nextPage = nil
                     }
+                    
+                    self?.isRequestingPage = false
+                    print("onSuccess - is requesting page: false")
+
+                }, onError: { [weak self] _ in
+                    
+                    self?.isRequestingPage = false
+                    print("onError - is requesting page: false")
+
                 }, onDispose: { [weak self] in
               
-                    self?.isRequestingPage = false
+//                    self?.isRequestingPage = false
+                    
+                    print("dispose - is requesting page: false")
                     
                 })
             .map { $0.0 }
