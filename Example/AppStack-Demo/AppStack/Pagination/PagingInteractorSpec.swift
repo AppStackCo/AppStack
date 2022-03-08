@@ -1,5 +1,5 @@
 //
-//  CharacterListInteractorSpec.swift
+//  PagingInteractorSpec.swift
 //  AppStack_Tests
 //
 //  Created by Marius Gutoi on 22/2/22.
@@ -27,28 +27,6 @@ import RxRelay
 /// dependency
 /// - get page
 ///
-///
-/// TESTS:
-///
-/// GIVEN:
-/// no input
-///
-/// WHEN:
-/// --
-///
-/// THEN:
-/// receive first page
-///
-///
-/// GIVEN:
-/// no input
-///
-/// WHEN:
-/// --
-///
-/// THEN:
-/// receive first page
-
 
 class CharacterListInteractorSpec: QuickSpec {
 
