@@ -3,13 +3,15 @@
 //  AppStack-Demo
 //
 //  Created by Marius Gutoi on 19.07.2021.
-//  Copyright © 2021 CocoaPods. All rights reserved.
+//  Copyright © 2021 AppStack. All rights reserved.
 //
 
 import AppStack
 import RxSwift
 
 class DemoAppCoordinator: AppCoordinator {
+    
+    private let disposeBag = DisposeBag()
     
     func start() {
         

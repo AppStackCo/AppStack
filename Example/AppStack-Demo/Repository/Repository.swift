@@ -3,7 +3,7 @@
 //  AppStack-Demo
 //
 //  Created by Marius Gutoi on 22.07.2021.
-//  Copyright © 2021 CocoaPods. All rights reserved.
+//  Copyright © 2021 AppStack. All rights reserved.
 //
 
 import RxRelay
@@ -21,7 +21,7 @@ final class Repository {
     
     private let disposeBag = DisposeBag()
     
-    // network layer
+    private let networkLayer = NetworkLayer()
     
     // local storage
     
@@ -58,5 +58,13 @@ extension Repository {
     func logout() {
         
         appStateRelay.accept(.loggedOut)
+    }
+}
+
+
+extension Repository {
+        
+    func getCharacters(page: Int?) -> Single<([CharacterEntity], Bool)> {
+        networkLayer.getCharacters(page: page)
     }
 }

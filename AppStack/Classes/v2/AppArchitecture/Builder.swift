@@ -1,9 +1,9 @@
 //
 //  Builder.swift
-//  DemoArchitecture
+//  AppStack
 //
 //  Created by Marius Gutoi on 07/02/2019.
-//  Copyright © 2019 Marius Gutoi. All rights reserved.
+//  Copyright © 2019 AppStack. All rights reserved.
 //
 
 import UIKit
@@ -20,14 +20,14 @@ public protocol Builder {
     associatedtype D
     
     /// view controller
-    associatedtype VC: ViewControllable & UIViewController & StoryboardBased
+    associatedtype VC: UIViewController & ViewControllable & StoryboardBased
     
     /// assembly all together
-    func build(route: R, data: D?) -> VC
+    static func build(route: R, data: D?) -> VC
 }
 
 extension Builder {
-    public func build(route: R, data: D? = nil) -> VC {
+    public static func build(route: R, data: D? = nil) -> VC {
         let viewModel = VM.init(route: route as! VM.R, data: data as? VM.D)
         var viewController = VC.inflateFromStoryboard()
         viewController.viewModel = viewModel as? VC.VM
